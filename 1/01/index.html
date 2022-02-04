@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Tientien 🙂",
+    
+    "image": "https://tientiensmile.github.io/images/avator.png"
+    
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage",
+    "@id": "https:\/\/tientiensmile.github.io\/1\/01\/" 
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tientien",
+    
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tientiensmile.github.io/images/avator.png"
+    }
+    
+  },
+  "description": "一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。\n  App extension：由Extension負責接收從Host app傳進來的檔案。\n  Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)\n  Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。\n UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案\n info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App \u0026amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.",
+  "keywords": []
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="Tientien 🙂">
+<meta name="keywords" content="">
+<meta name="description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+  App extension：由Extension負責接收從Host app傳進來的檔案。
+  Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
+  Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
+ UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案
+ info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.">
+
+
+<meta property="og:description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+  App extension：由Extension負責接收從Host app傳進來的檔案。
+  Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
+  Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
+ UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案
+ info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tientien">
+<meta name="twitter:title" content="Tientien">
+<meta property="og:url" content="https://tientiensmile.github.io/1/01/">
+<meta property="twitter:url" content="https://tientiensmile.github.io/1/01/">
+<meta property="og:site_name" content="Tientien">
+<meta property="og:description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+  App extension：由Extension負責接收從Host app傳進來的檔案。
+  Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
+  Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
+ UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案
+ info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.">
+<meta name="twitter:description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+  App extension：由Extension負責接收從Host app傳進來的檔案。
+  Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
+  Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
+ UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案
+ info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.">
+<meta property="og:locale" content="en-us">
+
+  
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://tientiensmile.github.io/images/avator.png">
+  <meta property="twitter:image" content="https://tientiensmile.github.io/images/avator.png">
+
+
+
+
+
+
+    <title>Tientien</title>
+
+    <link rel="icon" href="https://tientiensmile.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://tientiensmile.github.io/1/01/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://tientiensmile.github.io/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://tientiensmile.github.io/" aria-label="Go to homepage">Tientien</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://tientiensmile.github.io/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://tientiensmile.github.io/images/avator.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://tientiensmile.github.io/#about" aria-label="Read more about the author">
+          <img class="sidebar-profile-picture" src="https://tientiensmile.github.io/images/avator.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Tientien 🙂</h4>
+        
+          <h5 class="sidebar-profile-bio">The literal meaning of life is whatever you&rsquo;re doing that prevents you from killing yourself.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tientiensmile.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tientiensmile.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tientiensmile.github.io/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tientiensmile.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://tientiensmile.github.io/#about" title="About">
+    
+      <i class="sidebar-button-icon fas fa-lg fa-id-card" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/tientiensmile" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title">
+      
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="0001-01-01T00:00:00Z">
+        
+  January 1, 1
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p><img src="https://i.imgur.com/PQLyMLq.gif" alt=""></p>
+<h2 id="一流程介紹">一、流程介紹</h2>
+<p><img src="https://i.imgur.com/3Cde4iW.png" alt=""></p>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p><strong>Host app</strong>：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。</p>
+</li>
+<li>
+<p><strong>App extension</strong>：由Extension負責接收從Host app傳進來的檔案。</p>
+</li>
+<li>
+<p><strong>Containing app</strong>：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)</p>
+</li>
+<li>
+<p><strong>Shared resources</strong>：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。</p>
+<ul>
+<li>UserDefaults</li>
+<li>FileManager</li>
+<li>CoreData</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="二實作">二、實作</h2>
+<h3 id="1-file--new--target--shareextension">1. File → New → Target → ShareExtension</h3>
+<p><img src="https://i.imgur.com/sjrRPYJ.png" alt=""></p>
+<!-- raw HTML omitted -->
+<p>新增ShareExtension Target之後自動產生3個檔案</p>
+<ul>
+<li><strong>info.plist</strong>：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。</li>
+<li><strong>MainInterface.storyboard</strong>：點擊分享打開ShareExtension的入口</li>
+<li><strong>ShareViewController: SLComposeServiceViewController</strong>：預設的分享彈窗</li>
+</ul>
+<!-- raw HTML omitted -->
+<h3 id="2-設定-app-groups">2. 設定 App groups</h3>
+<p><img src="https://i.imgur.com/33nDDSb.png" alt=""></p>
+<!-- raw HTML omitted -->
+<ul>
+<li>一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。</li>
+<li>App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。</li>
+<li>利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。</li>
+</ul>
+<!-- raw HTML omitted -->
+<h3 id="3-在infoplist設定app允許接受什麼類型的內容">3. 在Info.plist設定APP允許接受什麼類型的內容</h3>
+<h4 id="nsextension--nsextensionattributes-改為dictionary-type--新增下列欲選取的key">NSExtension ➔ NSExtensionAttributes 改為Dictionary Type ➔ 新增下列欲選取的key</h4>
+<!-- raw HTML omitted -->
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NSExtensionActivationSupportsAttachmentsWithMaxCount</td>
+<td>附件最多數量限制。附件類型包括File、Image、movie，可以單一、可以複選，但總數量不得超過指定數量</td>
+</tr>
+<tr>
+<td>NSExtensionActivationSupportsAttachmentsWithMinCount</td>
+<td>附件最少數量限制。預設至少選擇1個附件分享時才會顯示app icon</td>
+</tr>
+<tr>
+<td>NSExtensionActivationSupportsFileWithMaxCount</td>
+<td>文件最多數量限制。泛指除Image/Movie之外的附件。</td>
+</tr>
+<tr>
+<td>NSExtensionActivationSupportsImageWithMaxCount</td>
+<td>圖片最多數量限制。</td>
+</tr>
+<tr>
+<td>NSExtensionActivationSupportsMovieWithMaxCount</td>
+<td>影片最多數量限制。</td>
+</tr>
+<tr>
+<td>NSExtensionActivationSupportsText</td>
+<td>是否支持文本類型。</td>
+</tr>
+<tr>
+<td>NSExtensionActivationSupportsWebURLWithMaxCount</td>
+<td>web連結最多數量限制。</td>
+</tr>
+<tr>
+<td>NSExtensionActivationSupportsWebPageWithMaxCount</td>
+<td>web頁面最多數量限制。</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<h3 id="4-透過解析extensioncontext得到分享內容">4. 透過解析extensionContext得到分享內容</h3>
+<h4 id="nsextensioncontext"><strong>NSExtensionContext</strong></h4>
+<!-- raw HTML omitted -->
+<ul>
+<li><strong>inputItems: [NSExtensionItem]</strong>：分享一種類型為一個item。</li>
+<li><strong>completeRequest(returningItems: [Any]?, completionHandler: ((Bool) -&gt; Void)?)</strong>：完成分享請求。</li>
+<li><strong>cancelRequest(withError: Error)</strong>：取消分享請求。</li>
+</ul>
+<!-- raw HTML omitted -->
+<h4 id="nsextensionitem"><strong>NSExtensionItem</strong></h4>
+<!-- raw HTML omitted -->
+<ul>
+<li><strong>attributedTitle</strong>: 標題</li>
+<li><strong>attributedContentText</strong>: 内容</li>
+<li><strong>attachments</strong>: 附件陣列，包含圖片、影片、連結等資源，封裝在NSItemProvider類中</li>
+<li><strong>userInfo: [AnyHashable: Any]</strong>：是一個字典，NSExtensionItem中的屬性都會在裡面
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NSExtensionItemAttributedTitleKey</td>
+<td>標題</td>
+</tr>
+<tr>
+<td>NSExtensionItemAttributedContentTextKey</td>
+<td>內容</td>
+</tr>
+<tr>
+<td>NSExtensionItemAttachmentsKey</td>
+<td>附件</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h4 id="nsitemprovider常用方法"><strong>NSItemProvider</strong>常用方法</h4>
+<!-- raw HTML omitted -->
+<ol>
+<li>判斷是否有指定類型的資源：
+<strong>hasItemConformingToTypeIdentifier(typeIdentifier: String) -&gt; Bool</strong></li>
+<li>加載指定類型的資源：
+<strong>loadItem(forTypeIdentifier: String, options: [AnyHashable : Any]?, completionHandler: NSItemProvider.CompletionHandler?)</strong></li>
+<li>加載資源的預覽圖片：
+<strong>loadPreviewImage(options: [AnyHashable : Any]?, completionHandler: NSItemProvider.CompletionHandler?)</strong></li>
+</ol>
+<!-- raw HTML omitted -->
+<p><img src="https://i.imgur.com/c5V6AsV.png" alt=""></p>
+<h3 id="5-將分享內容傳遞到containing-app中">5. 將分享內容傳遞到Containing app中</h3>
+<h4 id="--分享內容存放的地方">- 分享內容存放的地方</h4>
+<!-- raw HTML omitted -->
+<p><strong>(1) UserDefaults</strong><br>
+<strong>(2) FileManager</strong><br>
+<strong>(3) CoreData</strong></p>
+<!-- raw HTML omitted -->
+<h4 id="--啟動project-app的方法">- 啟動Project App的方法</h4>
+<!-- raw HTML omitted -->
+<p><strong>[注意]</strong> ShareExtension無法使用<code>extensionContext.open(URL: URL, completionHandler: ((Bool) -&gt; Void)?)</code> 的方式開啟Project App</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->必須使用方法<code>openURL(_ url: URL)</code>如下： <!-- raw HTML omitted -->(可以通過審核！)<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> appURL: String = <span style="color:#e6db74">&#34;forum://shareExtension&#34;</span>
+
+<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">openMainApp</span>() {
+    extensionContext?.completeRequest(returningItems: <span style="color:#66d9ef">nil</span>, completionHandler: { [<span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">self</span>] <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span>
+        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> self = <span style="color:#66d9ef">self</span>,
+              <span style="color:#66d9ef">let</span> url = URL(string: <span style="color:#66d9ef">self</span>.appURL) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+        <span style="color:#66d9ef">_</span> = <span style="color:#66d9ef">self</span>.openURL(url)
+    })
+}
+
+<span style="color:#75715e">/// 開啟app連結</span>
+<span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">openURL</span>(<span style="color:#66d9ef">_</span> url: URL) -&gt; Bool {
+    <span style="color:#66d9ef">var</span> responder: UIResponder? = <span style="color:#66d9ef">self</span>
+    <span style="color:#66d9ef">while</span> responder <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> application = responder <span style="color:#66d9ef">as</span>? UIApplication {
+            <span style="color:#66d9ef">return</span> application.perform(<span style="color:#66d9ef">#selector</span>(openURL(<span style="color:#66d9ef">_</span>:)), with: url) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span>
+        }
+        responder = responder?.next
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+</code></pre></div><p><!-- raw HTML omitted -->在Project APP的Info.plist設定URL Scheme (ex: forum)<!-- raw HTML omitted -->
+<img src="https://i.imgur.com/74Z61is.png" alt=""></p>
+<!-- raw HTML omitted -->
+<p>並在Project APP的AppDelegate設定可以接收到shareExtension傳進來的連結(ex:&ldquo;forum://shareExtension&rdquo;)</p>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code>func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -&gt; Bool {
+    if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
+    components.host == &quot;shareExtension&quot; {
+        return true
+    }
+    return false
+}
+</code></pre><h2 id="三原生分享彈窗">三、原生分享彈窗</h2>
+<pre tabindex="0"><code>import UIKit
+import Social
+
+class ShareViewController: SLComposeServiceViewController {
+
+    /// 檢查內容是否符合要求
+    override func isContentValid() -&gt; Bool {
+        // Do validation of contentText and/or NSExtensionContext attachments here
+        return true
+    }
+
+    /// 點擊Post要做的事情
+    override func didSelectPost() {
+        // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
+    
+        // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
+        self.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
+    }
+
+    /// 客製化介面
+    override func configurationItems() -&gt; [Any]! {
+        // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
+        return []
+    }
+
+}
+</code></pre><p><img src="https://i.imgur.com/8LaHFof.png" alt=""></p>
+<h2 id="四客製化分享彈窗">四、客製化分享彈窗</h2>
+<!-- raw HTML omitted -->
+<ol>
+<li>刪除 MainInterface.storyboard</li>
+<li>Info.plist 刪除 NSExtensionMainStoryboard</li>
+<li>NSExtension下設定 NSExtensionPrincipalClass (點擊分享進入ShareExtension的入口ViewController)
+<ul>
+<li>ex: EntryViewController</li>
+</ul>
+</li>
+<li>在入口ViewController(EntryViewController)類別上加上<code>@objc (EntryViewController)</code></li>
+<li>可以如同專案中的ViewController繼承UIViewController或UINavigationController，自由的刻出想要的分享畫面</li>
+</ol>
+<!-- raw HTML omitted -->
+<p><img src="https://i.imgur.com/J06Q4LJ.png" alt=""></p>
+<p><!-- raw HTML omitted --><strong>EntryViewController</strong><!-- raw HTML omitted --></p>
+<pre tabindex="0"><code class="language-swift=" data-lang="swift=">import UIKit
+
+@objc(EntryViewController)
+class EntryViewController : UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .clear
+        let vc = ShareViewController(context: extensionContext)
+        self.present(vc, animated: true)
+    }
+}
+</code></pre><!-- raw HTML omitted -->
+<p>[補充1]<br>
+EntryViewController第9行，需要把<code>extensionContext</code>傳遞給下一個ShareViewController。實測只有iOS14以上可以不用傳遞，各個ViewController都取得到<code>extensionContext</code>的內容，但不到iOS14版本不傳遞下去，在其他ViewController取到的<code>extensionContext＝nil</code>。</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><strong>ShareViewController</strong><!-- raw HTML omitted --></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Social</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">MobileCoreServices</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ShareViewController</span>: UIViewController {
+    
+    <span style="color:#75715e">/// 分享到頁面的類型(數值對應到deepLink設定)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">CreateType</span>: Int {
+        
+        <span style="color:#75715e">/// 發文</span>
+        <span style="color:#66d9ef">case</span> createArticle = <span style="color:#ae81ff">12</span>
+        
+        <span style="color:#75715e">/// 提問</span>
+        <span style="color:#66d9ef">case</span> createQuestion = <span style="color:#ae81ff">13</span>
+    }
+    
+    <span style="color:#75715e">/// 分享內容需要從入口頁傳進來否則iOS14以下extensionContext會是nil</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> context: NSExtensionContext?
+    
+    <span style="color:#75715e">/// 分享視窗高度</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> shareViewHeight: CGFloat = <span style="color:#ae81ff">318.0</span>
+    
+    <span style="color:#75715e">/// 分享視窗</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">var</span> shareView: UIView = {
+        <span style="color:#66d9ef">return</span> UIView()
+    }()
+    
+    <span style="color:#75715e">/// 發文</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">var</span> createArticleView: UIView = {
+        <span style="color:#66d9ef">return</span> UIView()
+    }()
+    
+    <span style="color:#75715e">/// 提問</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">var</span> createQuestionView: UIView = {
+        <span style="color:#66d9ef">return</span> UIView()
+    }()
+    
+    <span style="color:#75715e">/// 標題</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">var</span> titleLabel: UILabel = {
+        <span style="color:#66d9ef">return</span> UILabel()
+    }()
+    
+    <span style="color:#75715e">/// 文字類型</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> typeText = String(kUTTypeText)
+    
+    <span style="color:#75715e">/// 連結類型</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> typeURL = String(kUTTypeURL)
+    
+    <span style="color:#75715e">/// 圖片類型</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> typeImage = String(kUTTypeImage)
+    
+    <span style="color:#75715e">/// 轉跳至app的連結</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> appURL = <span style="color:#e6db74">&#34;forum://shareExtension/?linkType=&#34;</span>
+    
+    <span style="color:#75715e">/// 分享的資料</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> shareData: ShareData = ShareData()
+    
+    <span style="color:#75715e">/// 是否正在處理分享內容(防止連點分享)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> isHandlingIncomingContext: Bool = <span style="color:#66d9ef">false</span>
+    
+    <span style="color:#66d9ef">init</span>(context: NSExtensionContext?) {
+        <span style="color:#66d9ef">self</span>.context = context
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(nibName: <span style="color:#66d9ef">nil</span>, bundle: <span style="color:#66d9ef">nil</span>)
+        modalPresentationStyle = .fullScreen
+        view.backgroundColor = UIColor(white: <span style="color:#ae81ff">0</span>, alpha: <span style="color:#ae81ff">0.65</span>)
+    }
+    
+    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
+        fatalError(<span style="color:#e6db74">&#34;init(coder:) has not been implemented&#34;</span>)
+    }
+    
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+        <span style="color:#66d9ef">super</span>.viewDidLoad()
+        setupUI()
+        setupGesture()
+    }
+    
+    <span style="color:#75715e">/// 設定UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupUI</span>() {
+        setupShareView()
+        setupTitleView()
+        setupCreateArticleButton()
+        setupCreateQuestionButton()
+    }
+    
+    <span style="color:#75715e">/// 設定分享視窗</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupShareView</span>() {
+        shareView.backgroundColor = UIColor.grayBg200
+        shareView.layer.cornerRadius = <span style="color:#ae81ff">4</span>
+        view.addSubview(shareView)
+        shareView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            shareView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            shareView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            shareView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            shareView.heightAnchor.constraint(equalToConstant: shareViewHeight)
+        ])
+        
+        <span style="color:#66d9ef">let</span> upperline = UIView()
+        upperline.backgroundColor = UIColor.grayBg200
+        upperline.layer.cornerRadius = <span style="color:#ae81ff">2</span>
+        view.addSubview(upperline)
+        upperline.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            upperline.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            upperline.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">67</span>),
+            upperline.bottomAnchor.constraint(equalTo: shareView.topAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>),
+            upperline.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">4</span>)
+        ])
+    }
+    
+    <span style="color:#75715e">/// 設定標題UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupTitleView</span>() {
+        shareView.addSubview(titleLabel)
+        titleLabel.layer.cornerRadius = <span style="color:#ae81ff">4</span>
+        titleLabel.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        titleLabel.backgroundColor = .clear
+        titleLabel.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: shareView.topAnchor),
+            titleLabel.widthAnchor.constraint(equalTo: shareView.widthAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">49</span>),
+            titleLabel.centerXAnchor.constraint(equalTo: shareView.centerXAnchor)
+        ])
+        titleLabel.text = NSLocalizedString(<span style="color:#e6db74">&#34;選擇分享位置&#34;</span>, comment: <span style="color:#e6db74">&#34;&#34;</span>)
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.pingFangRegular(size: <span style="color:#ae81ff">18</span>)
+        titleLabel.textColor = UIColor.grayText800
+        
+        <span style="color:#66d9ef">let</span> seperateLine = UIView()
+        shareView.addSubview(seperateLine)
+        seperateLine.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        seperateLine.backgroundColor = UIColor.grayBg550
+        NSLayoutConstraint.activate([
+            seperateLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            seperateLine.widthAnchor.constraint(equalTo: shareView.widthAnchor),
+            seperateLine.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">1</span>),
+            seperateLine.centerXAnchor.constraint(equalTo: shareView.centerXAnchor)
+        ])
+    }
+    
+    <span style="color:#75715e">/// 設定提問UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupCreateQuestionButton</span>() {
+        shareView.addSubview(createQuestionView)
+        createQuestionView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            createQuestionView.leadingAnchor.constraint(equalTo: shareView.leadingAnchor, constant: <span style="color:#ae81ff">47</span>),
+            createQuestionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: <span style="color:#ae81ff">25</span>),
+            createQuestionView.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">93</span>),
+            createQuestionView.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">197</span>)
+        ])
+        
+        <span style="color:#66d9ef">let</span> createQuestionImageView = UIImageView()
+        createQuestionView.addSubview(createQuestionImageView)
+        createQuestionImageView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        createQuestionImageView.image = UIImage(named: <span style="color:#e6db74">&#34;share_ask&#34;</span>)
+        createQuestionImageView.layer.cornerRadius = <span style="color:#ae81ff">4</span>
+        createQuestionImageView.layer.shadowColor = UIColor.black.cgColor
+        createQuestionImageView.layer.shadowRadius = <span style="color:#ae81ff">16</span>
+        createQuestionImageView.layer.shadowOpacity = <span style="color:#ae81ff">0.16</span>
+        createQuestionImageView.layer.shadowOffset = CGSize(width: <span style="color:#ae81ff">0</span>, height: <span style="color:#ae81ff">2</span>)
+        createQuestionImageView.layer.masksToBounds = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            createQuestionImageView.topAnchor.constraint(equalTo: createQuestionView.topAnchor),
+            createQuestionImageView.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">144</span>),
+            createQuestionImageView.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">66</span>),
+            createQuestionImageView.centerXAnchor.constraint(equalTo: createQuestionView.centerXAnchor)
+        ])
+        
+        <span style="color:#66d9ef">let</span> createQuestionLabel = UILabel()
+        createQuestionView.addSubview(createQuestionLabel)
+        createQuestionLabel.text = NSLocalizedString(<span style="color:#e6db74">&#34;提問&#34;</span>, comment: <span style="color:#e6db74">&#34;&#34;</span>)
+        createQuestionLabel.textAlignment = .center
+        createQuestionLabel.textColor = UIColor.unselectContent
+        createQuestionLabel.backgroundColor = UIColor.primary
+        createQuestionLabel.font = UIFont.pingFangRegular(size: <span style="color:#ae81ff">18</span>)
+        createQuestionLabel.layer.cornerRadius = <span style="color:#ae81ff">16.5</span>
+        createQuestionLabel.clipsToBounds = <span style="color:#66d9ef">true</span>
+        createQuestionLabel.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            createQuestionLabel.topAnchor.constraint(equalTo: createQuestionImageView.bottomAnchor, constant: <span style="color:#ae81ff">20</span>),
+            createQuestionLabel.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">33</span>),
+            createQuestionLabel.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">93</span>),
+            createQuestionLabel.centerXAnchor.constraint(equalTo: createQuestionView.centerXAnchor)
+        ])
+    }
+    
+    <span style="color:#75715e">/// 設定發文UI</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupCreateArticleButton</span>() {
+        shareView.addSubview(createArticleView)
+        createArticleView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            createArticleView.trailingAnchor.constraint(equalTo: shareView.trailingAnchor, constant: <span style="color:#f92672">-</span><span style="color:#ae81ff">47</span>),
+            createArticleView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: <span style="color:#ae81ff">25</span>),
+            createArticleView.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">93</span>),
+            createArticleView.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">197</span>)
+        ])
+        
+        <span style="color:#66d9ef">let</span> createArticleImageView = UIImageView()
+        createArticleView.addSubview(createArticleImageView)
+        createArticleImageView.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        createArticleImageView.image = UIImage(named: <span style="color:#e6db74">&#34;share_post&#34;</span>)
+        createArticleImageView.layer.cornerRadius = <span style="color:#ae81ff">4</span>
+        createArticleImageView.layer.shadowColor = UIColor.black.cgColor
+        createArticleImageView.layer.shadowRadius = <span style="color:#ae81ff">16</span>
+        createArticleImageView.layer.shadowOpacity = <span style="color:#ae81ff">0.16</span>
+        createArticleImageView.layer.shadowOffset = CGSize(width: <span style="color:#ae81ff">0</span>, height: <span style="color:#ae81ff">2</span>)
+        createArticleImageView.layer.masksToBounds = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            createArticleImageView.topAnchor.constraint(equalTo: createArticleView.topAnchor),
+            createArticleImageView.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">144</span>),
+            createArticleImageView.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">66</span>),
+            createArticleImageView.centerXAnchor.constraint(equalTo: createArticleView.centerXAnchor)
+        ])
+        
+        <span style="color:#66d9ef">let</span> createArticleLabel = UILabel()
+        createArticleView.addSubview(createArticleLabel)
+        createArticleLabel.text = NSLocalizedString(<span style="color:#e6db74">&#34;發文&#34;</span>, comment: <span style="color:#e6db74">&#34;&#34;</span>)
+        createArticleLabel.textAlignment = .center
+        createArticleLabel.textColor = UIColor.unselectContent
+        createArticleLabel.backgroundColor = UIColor.secondary
+        createArticleLabel.font = UIFont.pingFangRegular(size: <span style="color:#ae81ff">18</span>)
+        createArticleLabel.layer.cornerRadius = <span style="color:#ae81ff">16.5</span>
+        createArticleLabel.clipsToBounds = <span style="color:#66d9ef">true</span>
+        createArticleLabel.translatesAutoresizingMaskIntoConstraints = <span style="color:#66d9ef">false</span>
+        NSLayoutConstraint.activate([
+            createArticleLabel.topAnchor.constraint(equalTo: createArticleImageView.bottomAnchor, constant: <span style="color:#ae81ff">20</span>),
+            createArticleLabel.heightAnchor.constraint(equalToConstant: <span style="color:#ae81ff">33</span>),
+            createArticleLabel.widthAnchor.constraint(equalToConstant: <span style="color:#ae81ff">93</span>),
+            createArticleLabel.centerXAnchor.constraint(equalTo: createArticleView.centerXAnchor)
+        ])
+    }
+    
+    <span style="color:#75715e">/// 加入點擊手勢事件</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupGesture</span>() {
+        <span style="color:#66d9ef">let</span> tapGesture = UITapGestureRecognizer(target: <span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(handleTap))
+        view.addGestureRecognizer(tapGesture)
+        
+        <span style="color:#66d9ef">let</span> createQuestionTapGesture = UITapGestureRecognizer(target: <span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(createQuestion))
+        createQuestionView.addGestureRecognizer(createQuestionTapGesture)
+        
+        <span style="color:#66d9ef">let</span> createArticleTapGesture = UITapGestureRecognizer(target: <span style="color:#66d9ef">self</span>, action: <span style="color:#66d9ef">#selector</span>(createArticle))
+        createArticleView.addGestureRecognizer(createArticleTapGesture)
+    }
+    
+    <span style="color:#75715e">/// 點擊分享視窗以外的區域，退出分享視窗</span>
+    <span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleTap</span>(<span style="color:#66d9ef">_</span> recognizer: UITapGestureRecognizer) {
+        <span style="color:#66d9ef">let</span> location = recognizer.location(<span style="color:#66d9ef">in</span>: shareView)
+        <span style="color:#66d9ef">if</span> location.x <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> location.y <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> {
+            <span style="color:#66d9ef">return</span>
+        }
+        dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+        context?.cancelRequest(withError: ShareError(description: <span style="color:#e6db74">&#34;Cancel&#34;</span>))
+    }
+    
+    <span style="color:#75715e">/// 點擊發文</span>
+    <span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createArticle</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>isHandlingIncomingContext {
+            handleIncomingContext(type: .createArticle)
+            peekFeedback()
+        }
+    }
+    
+    <span style="color:#75715e">/// 點擊提問</span>
+    <span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createQuestion</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>isHandlingIncomingContext {
+            handleIncomingContext(type: .createQuestion)
+            peekFeedback()
+        }
+    }
+    
+    <span style="color:#75715e">/// 處理分享內容</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleIncomingContext</span>(type: CreateType) {
+        isHandlingIncomingContext = <span style="color:#66d9ef">true</span>
+        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> extensionItem = context?.inputItems.first <span style="color:#66d9ef">as</span>? NSExtensionItem,
+              <span style="color:#66d9ef">let</span> attachments = extensionItem.attachments <span style="color:#66d9ef">else</span> {
+            handleIncomingError()
+            <span style="color:#66d9ef">return</span>
+        }
+        shareData.imageData = []
+        <span style="color:#66d9ef">for</span> (index, itemProvider) <span style="color:#66d9ef">in</span> attachments.enumerated() {
+            <span style="color:#66d9ef">if</span> itemProvider.hasItemConformingToTypeIdentifier(typeText) {
+                handleIncomingText(type: type, itemProvider: itemProvider)
+            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> itemProvider.hasItemConformingToTypeIdentifier(typeURL) {
+                handleIncomingURL(type: type, itemProvider: itemProvider)
+            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> itemProvider.hasItemConformingToTypeIdentifier(typeImage){
+                handleIncomingImage(type: type, itemProvider: itemProvider, isLast: index == attachments.count<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            } <span style="color:#66d9ef">else</span> {
+                handleIncomingError()
+            }
+        }
+        
+    }
+    
+    <span style="color:#75715e">/// 處理錯誤，顯示彈窗</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleIncomingError</span>() {
+        <span style="color:#66d9ef">let</span> alert = UIAlertController(title: NSLocalizedString(<span style="color:#e6db74">&#34;分享失敗&#34;</span>, comment: <span style="color:#e6db74">&#34;&#34;</span>), message: NSLocalizedString(<span style="color:#e6db74">&#34;無法辨識您所分享的內容&#34;</span>, comment: <span style="color:#e6db74">&#34;&#34;</span>), preferredStyle: .alert)
+        
+        <span style="color:#66d9ef">let</span> action = UIAlertAction(title: NSLocalizedString(<span style="color:#e6db74">&#34;確定&#34;</span>, comment: <span style="color:#e6db74">&#34;&#34;</span>), style: .cancel) { [<span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">self</span>] <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">self</span>?.dismiss(animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+            <span style="color:#66d9ef">self</span>?.context?.cancelRequest(withError: ShareError(description: <span style="color:#e6db74">&#34;Cancel&#34;</span>))
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: <span style="color:#66d9ef">true</span>, completion: <span style="color:#66d9ef">nil</span>)
+    }
+    
+    <span style="color:#75715e">/// 處理照片</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleIncomingImage</span>(type: CreateType, itemProvider: NSItemProvider, isLast: Bool) {
+        itemProvider.loadItem(forTypeIdentifier: typeImage, options: <span style="color:#66d9ef">nil</span>) { [<span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">self</span>] (item, error) <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> self = <span style="color:#66d9ef">self</span> <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error {
+                <span style="color:#66d9ef">if</span> isLast {
+                    <span style="color:#66d9ef">self</span>.isHandlingIncomingContext = <span style="color:#66d9ef">false</span>
+                    <span style="color:#66d9ef">self</span>.context?.cancelRequest(withError: error)
+                }
+                <span style="color:#66d9ef">return</span>
+            }
+            
+            <span style="color:#75715e">// 處理從 project app 點擊圖片分享，又選擇分享至App中發文/提問</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> image = item <span style="color:#66d9ef">as</span>? UIImage,
+               <span style="color:#66d9ef">let</span> rawData = image.pngData() {
+                <span style="color:#66d9ef">self</span>.saveImage(type: type, rawData: rawData, isLast: isLast)
+                <span style="color:#66d9ef">return</span>
+            }
+
+            <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> url = item <span style="color:#66d9ef">as</span>? URL,
+                  <span style="color:#66d9ef">let</span> rawData = <span style="color:#66d9ef">try</span>? Data(contentsOf: url),
+                  <span style="color:#66d9ef">let</span> image = UIImage(data: rawData) <span style="color:#66d9ef">else</span> {
+                <span style="color:#66d9ef">if</span> isLast {
+                    <span style="color:#66d9ef">self</span>.isHandlingIncomingContext = <span style="color:#66d9ef">false</span>
+                    <span style="color:#66d9ef">self</span>.context?.completeRequest(returningItems: <span style="color:#66d9ef">nil</span>, completionHandler: <span style="color:#66d9ef">nil</span>)
+                }
+                <span style="color:#66d9ef">return</span>
+            }
+            
+            <span style="color:#75715e">// 從外部分享的照片可能檔案過大造成儲存失敗，先壓縮再儲存</span>
+            <span style="color:#66d9ef">let</span> compressImage = image.compressImage(targetWidth: <span style="color:#ae81ff">1280</span>)
+            <span style="color:#66d9ef">let</span> compressImageData = compressImage?.compressImageMid(expectedKb: <span style="color:#ae81ff">200</span>)
+            <span style="color:#66d9ef">self</span>.saveImage(type: type, rawData: compressData ?? rawData, isLast: isLast)
+        }
+    }
+    
+    <span style="color:#75715e">/// 儲存照片</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">saveImage</span>(type: CreateType, rawData: Data, isLast: Bool) {
+        shareData.imageData.append(rawData)
+        
+        <span style="color:#66d9ef">if</span> isLast {
+            saveContent(content: <span style="color:#66d9ef">self</span>.shareData)
+            openMainApp(type: type)
+            isHandlingIncomingContext = <span style="color:#66d9ef">false</span>
+        }
+    }
+    
+    <span style="color:#75715e">/// 處理文字</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleIncomingText</span>(type: CreateType, itemProvider: NSItemProvider) {
+        itemProvider.loadItem(forTypeIdentifier: typeText, options: <span style="color:#66d9ef">nil</span>) { [<span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">self</span>] (item, error) <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> self = <span style="color:#66d9ef">self</span> <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+            <span style="color:#66d9ef">self</span>.isHandlingIncomingContext = <span style="color:#66d9ef">false</span>
+
+            <span style="color:#66d9ef">guard</span> error == <span style="color:#66d9ef">nil</span>,
+                  <span style="color:#66d9ef">let</span> text = item <span style="color:#66d9ef">as</span>? String <span style="color:#66d9ef">else</span> {
+                <span style="color:#66d9ef">self</span>.handleIncomingError()
+                <span style="color:#66d9ef">return</span>
+            }
+            <span style="color:#66d9ef">self</span>.shareData.text = text
+            <span style="color:#66d9ef">self</span>.saveContent(content: <span style="color:#66d9ef">self</span>.shareData)
+            <span style="color:#66d9ef">self</span>.openMainApp(type: type)
+        }
+    }
+    
+    <span style="color:#75715e">/// 處理連結</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleIncomingURL</span>(type: CreateType, itemProvider: NSItemProvider) {
+        itemProvider.loadItem(forTypeIdentifier: typeURL, options: <span style="color:#66d9ef">nil</span>) { [<span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">self</span>] (item, error) <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> self = <span style="color:#66d9ef">self</span> <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+            <span style="color:#66d9ef">self</span>.isHandlingIncomingContext = <span style="color:#66d9ef">false</span>
+            <span style="color:#66d9ef">guard</span> error == <span style="color:#66d9ef">nil</span>,
+                  <span style="color:#66d9ef">let</span> url = item <span style="color:#66d9ef">as</span>? NSURL,
+                  <span style="color:#66d9ef">let</span> urlString = url.absoluteString <span style="color:#66d9ef">else</span> {
+                <span style="color:#66d9ef">self</span>.handleIncomingError()
+                <span style="color:#66d9ef">return</span>
+            }
+            
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> url = item <span style="color:#66d9ef">as</span>? URL,
+               <span style="color:#66d9ef">let</span> rawData = <span style="color:#66d9ef">try</span>? Data(contentsOf: url),
+               <span style="color:#66d9ef">let</span> _ = UIImage(data: rawData) {
+                <span style="color:#75715e">// 若url是圖片存成圖片data</span>
+                <span style="color:#66d9ef">self</span>.shareData.imageData.append(rawData)
+                <span style="color:#66d9ef">self</span>.saveContent(content: <span style="color:#66d9ef">self</span>.shareData)
+            } <span style="color:#66d9ef">else</span> {
+                <span style="color:#75715e">// 網址不是圖片再存成文字</span>
+                <span style="color:#66d9ef">self</span>.shareData.text = urlString
+                <span style="color:#66d9ef">self</span>.saveContent(content: <span style="color:#66d9ef">self</span>.shareData)
+            }
+            <span style="color:#66d9ef">self</span>.openMainApp(type: type)
+        }
+    }
+
+    <span style="color:#75715e">/// 儲存分享內容至UserDefaults</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">saveContent</span>(content: ShareData) {
+        UserDefaults.syncShareData(content)
+    }
+
+    <span style="color:#75715e">/// 開啟app</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">openMainApp</span>(type: CreateType) {
+        <span style="color:#66d9ef">self</span>.context?.completeRequest(returningItems: <span style="color:#66d9ef">nil</span>, completionHandler: { [<span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">self</span>] <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span>
+            <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> self = <span style="color:#66d9ef">self</span>,
+                  <span style="color:#66d9ef">let</span> url = URL(string: <span style="color:#66d9ef">self</span>.appURL <span style="color:#f92672">+</span> String(type.rawValue)) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+            <span style="color:#66d9ef">_</span> = <span style="color:#66d9ef">self</span>.openURL(url)
+        })
+    }
+
+    <span style="color:#75715e">/// 開啟app連結</span>
+    <span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">openURL</span>(<span style="color:#66d9ef">_</span> url: URL) -&gt; Bool {
+        <span style="color:#66d9ef">var</span> responder: UIResponder? = <span style="color:#66d9ef">self</span>
+        <span style="color:#66d9ef">while</span> responder <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> application = responder <span style="color:#66d9ef">as</span>? UIApplication {
+                <span style="color:#66d9ef">return</span> application.perform(<span style="color:#66d9ef">#selector</span>(openURL(<span style="color:#66d9ef">_</span>:)), with: url) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span>
+            }
+            responder = responder?.next
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+    }
+    
+    <span style="color:#75715e">// 點擊回饋(peek震動)</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">peekFeedback</span>() {
+        <span style="color:#66d9ef">let</span> generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.prepare()
+        generator.impactOccurred()
+    }
+    
+}
+
+<span style="color:#75715e">/// 分享錯誤物件</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ShareError</span>: Error {
+    <span style="color:#66d9ef">var</span> description: String
+}
+</code></pre></div><p><img src="https://i.imgur.com/wasVZ92.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">UserDefaults</span> {
+    
+    <span style="color:#75715e">/// 分享內容存至UserDefaults辨認的字串</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> sharedIdentifier: String = <span style="color:#e6db74">&#34;group.CMoney.Forum&#34;</span>
+    
+    <span style="color:#75715e">/// 儲存至UserDefaults的key</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> contextSharedKey = <span style="color:#e6db74">&#34;contextSharedKey&#34;</span>
+    
+    <span style="color:#75715e">/// 將ShareData存進UserDefaults</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">syncShareData</span>(<span style="color:#66d9ef">_</span> shareData: ShareData) {
+        <span style="color:#66d9ef">do</span> {
+            <span style="color:#75715e">// 轉換成功就存進 UserDefaults</span>
+            <span style="color:#66d9ef">let</span> data = <span style="color:#66d9ef">try</span> JSONEncoder().encode(shareData)
+            <span style="color:#66d9ef">let</span> userDefaults = UserDefaults(suiteName: UserDefaults.sharedIdentifier)
+            userDefaults?.<span style="color:#66d9ef">set</span>(data, forKey: UserDefaults.contextSharedKey)
+        } <span style="color:#66d9ef">catch</span> {
+            <span style="color:#75715e">// 轉換失敗就清掉</span>
+            <span style="color:#66d9ef">let</span> userDefaults = UserDefaults(suiteName: UserDefaults.sharedIdentifier)
+            userDefaults?.removeObject(forKey: UserDefaults.contextSharedKey)
+        }
+    }
+    
+    <span style="color:#75715e">/// 取得UserDefaults中的ShareData</span>
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getShareData</span>() -&gt; ShareData? {
+        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> data = UserDefaults(suiteName: sharedIdentifier)?.object(forKey: contextSharedKey) <span style="color:#66d9ef">as</span>? Data,
+           <span style="color:#66d9ef">let</span> shareData = <span style="color:#66d9ef">try</span>? JSONDecoder().decode(ShareData.<span style="color:#66d9ef">self</span>, from: data) {
+            <span style="color:#66d9ef">return</span> shareData
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+        }
+    }
+}    
+</code></pre></div><!-- raw HTML omitted -->
+<p>[補充2]<br>
+ShareViewController的338,339行為進行圖檔壓縮。從外部分享的照片可能因為檔案過大造成儲存失敗，因此需先將圖片壓縮至目標寬度，再用二分壓縮法將圖片壓縮至目標大小再儲存。</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">UIImage</span>{
+
+	<span style="color:#75715e">/// 壓縮圖片大小至目標寬度</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">compressImage</span>(targetWidth: CGFloat) -&gt; UIImage? {
+        <span style="color:#66d9ef">let</span> width = <span style="color:#66d9ef">self</span>.size.width
+        <span style="color:#66d9ef">let</span> height = <span style="color:#66d9ef">self</span>.size.height
+        <span style="color:#66d9ef">let</span> scale = width <span style="color:#f92672">/</span> height
+        <span style="color:#66d9ef">let</span> changedWidth: CGFloat
+        <span style="color:#66d9ef">let</span> changedheight: CGFloat
+        <span style="color:#66d9ef">var</span> sizeChange: CGSize
+        
+        <span style="color:#66d9ef">if</span> width <span style="color:#f92672">&lt;=</span> targetWidth <span style="color:#f92672">&amp;&amp;</span> height <span style="color:#f92672">&lt;=</span> targetWidth {
+            <span style="color:#75715e">// 圖片寬或者高均小於或等於targetWidth時圖片尺寸保持不變，不改變圖片大小</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">self</span>
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#66d9ef">if</span> scale <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span> {
+                changedWidth = targetWidth
+                changedheight = changedWidth <span style="color:#f92672">/</span> scale
+                sizeChange = CGSize(width: changedWidth, height: changedheight)
+            } <span style="color:#66d9ef">else</span> {
+                changedheight = targetWidth
+                changedWidth = changedheight <span style="color:#f92672">*</span> scale
+                sizeChange = CGSize(width: changedWidth, height: changedheight)
+            }
+        }
+        UIGraphicsBeginImageContext(sizeChange)
+        <span style="color:#66d9ef">self</span>.draw(<span style="color:#66d9ef">in</span>: CGRect(x: <span style="color:#ae81ff">0</span>, y: <span style="color:#ae81ff">0</span>, width: sizeChange.width, height: sizeChange.height))
+        <span style="color:#66d9ef">let</span> resizedImg = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        <span style="color:#66d9ef">return</span> resizedImg
+    }
+    
+    <span style="color:#75715e">/// 二分壓縮法</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">compressImageMid</span>(expectedKb: Int) -&gt; Data? {
+        <span style="color:#75715e">// 目標限制大小</span>
+        <span style="color:#66d9ef">let</span> limitSize = expectedKb <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span> <span style="color:#75715e">// 轉換成 byte</span>
+        <span style="color:#75715e">// 壓縮比例</span>
+        <span style="color:#66d9ef">var</span> compression: CGFloat = <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">var</span> data = <span style="color:#66d9ef">self</span>.jpegData(compressionQuality: <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span> }
+        Logger.log(message: <span style="color:#e6db74">&#34;壓縮前kb: </span><span style="color:#e6db74">\(</span>Double<span style="color:#e6db74">(</span>data.count<span style="color:#f92672">/</span><span style="color:#ae81ff">1024</span><span style="color:#e6db74">))</span><span style="color:#e6db74"> KB&#34;</span>)
+        <span style="color:#75715e">// 若原本尺寸就已經小於目標限制，則返回</span>
+        <span style="color:#66d9ef">if</span> data.count <span style="color:#f92672">&lt;</span> limitSize {
+            <span style="color:#66d9ef">return</span> data
+        }
+        <span style="color:#75715e">// 循環壓縮</span>
+        <span style="color:#66d9ef">var</span> max: CGFloat = <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">var</span> min: CGFloat = <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0</span> ..<span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">6</span> {
+            compression = (max <span style="color:#f92672">+</span> min) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+            <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> compressData = <span style="color:#66d9ef">self</span>.jpegData(compressionQuality: compression) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span> }
+            data = compressData
+            Logger.log(message: <span style="color:#e6db74">&#34;壓縮後kb: </span><span style="color:#e6db74">\(</span>Double<span style="color:#e6db74">(</span>data.count<span style="color:#f92672">/</span><span style="color:#ae81ff">1024</span><span style="color:#e6db74">))</span><span style="color:#e6db74"> KB&#34;</span>)
+            <span style="color:#66d9ef">if</span> CGFloat(data.count) <span style="color:#f92672">&lt;</span> CGFloat(limitSize) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.9</span> {
+                min = compression
+            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> data.count <span style="color:#f92672">&gt;</span> limitSize {
+                max = compression
+            } <span style="color:#66d9ef">else</span> {
+                <span style="color:#66d9ef">break</span>
+            }
+        }
+        <span style="color:#66d9ef">return</span> data
+    }
+}
+</code></pre></div><h2 id="五參考資料">五、參考資料</h2>
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AppExtensionKeys.html">官方文件</a></li>
+<li><a href="https://www.jianshu.com/p/a24ae0eb69d5">主要參考文件(包括開啟APP的方法)</a></li>
+<li><a href="https://diamantidis.github.io/2020/01/11/share-extension-custom-ui">客製化分享彈窗</a></li>
+<li>延伸：<a href="https://developer.apple.com/documentation/foundation/app_extension_support/supporting_suggestions_in_your_app_s_share_extension">分享訊息： INSendMessageIntent</a></li>
+</ul>
+<!-- raw HTML omitted -->
+
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tientiensmile.github.io/1/01/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tientiensmile.github.io/1/01/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tientiensmile.github.io/1/01/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https:\/\/tientiensmile.github.io\/1\/01\/';
+        
+          this.page.identifier = '\/1\/01\/'
+        
+      };
+      (function() {
+        
+        
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+          document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+          return;
+        }
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'hugo-tranquilpeak-theme';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Tientien 🙂. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tientiensmile.github.io/1/01/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tientiensmile.github.io/1/01/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tientiensmile.github.io/1/01/" title="Share on Linkedin" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+    <li class="post-action">
+      <a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Leave a comment">
+        <i class="far fa-comment"></i>
+      </a>
+    </li>
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftientiensmile.github.io%2F1%2F01%2F" aria-label="Share on Facebook">
+          <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftientiensmile.github.io%2F1%2F01%2F" aria-label="Share on Twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftientiensmile.github.io%2F1%2F01%2F" aria-label="Share on Linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://tientiensmile.github.io/images/avator.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Tientien 🙂</h4>
+    
+      <div id="about-card-bio">The literal meaning of life is whatever you&rsquo;re doing that prevents you from killing yourself.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        iOS Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker-alt"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://tientiensmile.github.io/images/cover.png');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://tientiensmile.github.io/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-gE8KAQyFIzV1C9+GZ8TKJHZS2s+n7EjNtC+IMRn1l5+WYJTHOODUM6JSjZhFhqXmc7bG8Av6XXpckA4tYhflnw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/apache.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/go.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-GDVzAn0wpx1yVtQsRWmFc6PhJiLBPdUic+h4GWgljBh904O3JU10fk9EKNpVyIoPqkFn54rgL2QBG4BmUTMpiQ==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/http.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-UgZlma8NzkrDb/NWgmLIcTrH7i/CSnLLDRFqCSNF5NGPpjKmzyM25qcoXGOup8+cDakKyaiTDd7N4dyH4YT+IA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/less.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-lot9koe73sfXIrUvIPM/UEhuMciN56RPyBdOyZgfO53P2lkWyyXN7J+njcxIIBRV+nVDQeiWtiXg+bLAJZDTfg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/nginx.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-Zd3e7XxHP00TD0Imr0PIfeM0fl0v95kMWuhyAS3Wn1UTSXTkz0OhtRgBAr4JlmADRgiXr4x7lpeUdqaGN8xIog==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/puppet.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-qtqDO052iXMSP+5d/aE/jMtL9vIIGvONgTJziC2K/ZIB1yEGa55WVxGE9/08rSQ62EoDifS9SWVGZ7ihSLhzMA==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/scss.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-1NmkjnEDnwwwcu28KoQF8vs3oaPFokQHbmbtwGhFfeDsQZtVFI8zW2aE9O8yMYdpdyKV/5blE4pSWw4Z/Sv97w==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/stylus.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-B2wSfruPjr8EJL6IIzQr1eAuDwrsfIfccNf/LCEdxELCgC/S/ZMt/Uvk80aD79m7IqOqW+Sw8nbkvha20yZpzg==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/swift.min.js"></script>
+  
+
+  
+    <script async crossorigin="anonymous" defer integrity="sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js"></script>
+  
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+
