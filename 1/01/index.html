@@ -32,7 +32,7 @@
     }
     
   },
-  "description": "一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。\n  App extension：由Extension負責接收從Host app傳進來的檔案。\n  Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)\n  Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。\n UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案\n info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App \u0026amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.",
+  "description": "Share Extension - 分享內容到你的APP中 一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。\n  App extension：由Extension負責接收從Host app傳進來的檔案。\n  Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)\n  Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。\n UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案\n info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App \u0026amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.",
   "keywords": []
 }
 
@@ -43,7 +43,7 @@
 <meta name="generator" content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Tientien 🙂">
 <meta name="keywords" content="">
-<meta name="description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+<meta name="description" content="Share Extension - 分享內容到你的APP中 一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
   App extension：由Extension負責接收從Host app傳進來的檔案。
   Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
   Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
@@ -51,7 +51,7 @@
  info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.">
 
 
-<meta property="og:description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+<meta property="og:description" content="Share Extension - 分享內容到你的APP中 一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
   App extension：由Extension負責接收從Host app傳進來的檔案。
   Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
   Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
@@ -63,13 +63,13 @@
 <meta property="og:url" content="https://tientiensmile.github.io/1/01/">
 <meta property="twitter:url" content="https://tientiensmile.github.io/1/01/">
 <meta property="og:site_name" content="Tientien">
-<meta property="og:description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+<meta property="og:description" content="Share Extension - 分享內容到你的APP中 一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
   App extension：由Extension負責接收從Host app傳進來的檔案。
   Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
   Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
  UserDefaults FileManager CoreData    二、實作 1. File → New → Target → ShareExtension 新增ShareExtension Target之後自動產生3個檔案
  info.plist：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。 MainInterface.storyboard：點擊分享打開ShareExtension的入口 ShareViewController: SLComposeServiceViewController：預設的分享彈窗  2. 設定 App groups  一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。 App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。 利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。  3.">
-<meta name="twitter:description" content="一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
+<meta name="twitter:description" content="Share Extension - 分享內容到你的APP中 一、流程介紹   Host app：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。
   App extension：由Extension負責接收從Host app傳進來的檔案。
   Containing app：主要開發的Project app，負責將資料如何對外呈現。(股市爆料同學會)
   Shared resources：Extension與Containing app透過蘋果提供的App Groups，允許開發者能夠讓Containing app存取Extension所接收到的檔案。
@@ -266,9 +266,9 @@
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <h2 id="一流程介紹">一、流程介紹</h2>
+              <h1 id="share-extension---分享內容到你的app中">Share Extension - 分享內容到你的APP中</h1>
+<h2 id="一流程介紹">一、流程介紹</h2>
 <p><img src="https://i.imgur.com/3Cde4iW.png" alt=""></p>
-<!-- raw HTML omitted -->
 <ul>
 <li>
 <p><strong>Host app</strong>：使用者透過哪個app（本機照片、檔案或連結）分享到我的app，透過的這個app稱為Host app。</p>
@@ -288,30 +288,24 @@
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
 <h2 id="二實作">二、實作</h2>
 <h3 id="1-file--new--target--shareextension">1. File → New → Target → ShareExtension</h3>
 <p><img src="https://i.imgur.com/sjrRPYJ.png" alt=""></p>
-<!-- raw HTML omitted -->
 <p>新增ShareExtension Target之後自動產生3個檔案</p>
 <ul>
 <li><strong>info.plist</strong>：設定可以分享至APP的內容格式、ShareExtension入口的ViewController等。</li>
 <li><strong>MainInterface.storyboard</strong>：點擊分享打開ShareExtension的入口</li>
 <li><strong>ShareViewController: SLComposeServiceViewController</strong>：預設的分享彈窗</li>
 </ul>
-<!-- raw HTML omitted -->
 <h3 id="2-設定-app-groups">2. 設定 App groups</h3>
 <p><img src="https://i.imgur.com/33nDDSb.png" alt=""></p>
-<!-- raw HTML omitted -->
 <ul>
 <li>一般的情況下，iOS App 只能存取自己資料夾下的東西，無法存取其它 App 的內容。</li>
 <li>App Group 讓不同的 App 或是 App &amp; App extension 之間可以共享資料。</li>
 <li>利用 UserDefaults 共享資料，輸入的 container 名字要與 UserDefaults 的 suitName 相同。</li>
 </ul>
-<!-- raw HTML omitted -->
 <h3 id="3-在infoplist設定app允許接受什麼類型的內容">3. 在Info.plist設定APP允許接受什麼類型的內容</h3>
 <h4 id="nsextension--nsextensionattributes-改為dictionary-type--新增下列欲選取的key">NSExtension ➔ NSExtensionAttributes 改為Dictionary Type ➔ 新增下列欲選取的key</h4>
-<!-- raw HTML omitted -->
 <table>
 <thead>
 <tr>
@@ -354,18 +348,14 @@
 </tr>
 </tbody>
 </table>
-<!-- raw HTML omitted -->
 <h3 id="4-透過解析extensioncontext得到分享內容">4. 透過解析extensionContext得到分享內容</h3>
 <h4 id="nsextensioncontext"><strong>NSExtensionContext</strong></h4>
-<!-- raw HTML omitted -->
 <ul>
 <li><strong>inputItems: [NSExtensionItem]</strong>：分享一種類型為一個item。</li>
 <li><strong>completeRequest(returningItems: [Any]?, completionHandler: ((Bool) -&gt; Void)?)</strong>：完成分享請求。</li>
 <li><strong>cancelRequest(withError: Error)</strong>：取消分享請求。</li>
 </ul>
-<!-- raw HTML omitted -->
 <h4 id="nsextensionitem"><strong>NSExtensionItem</strong></h4>
-<!-- raw HTML omitted -->
 <ul>
 <li><strong>attributedTitle</strong>: 標題</li>
 <li><strong>attributedContentText</strong>: 内容</li>
@@ -395,9 +385,7 @@
 </table>
 </li>
 </ul>
-<!-- raw HTML omitted -->
 <h4 id="nsitemprovider常用方法"><strong>NSItemProvider</strong>常用方法</h4>
-<!-- raw HTML omitted -->
 <ol>
 <li>判斷是否有指定類型的資源：
 <strong>hasItemConformingToTypeIdentifier(typeIdentifier: String) -&gt; Bool</strong></li>
@@ -406,19 +394,14 @@
 <li>加載資源的預覽圖片：
 <strong>loadPreviewImage(options: [AnyHashable : Any]?, completionHandler: NSItemProvider.CompletionHandler?)</strong></li>
 </ol>
-<!-- raw HTML omitted -->
 <p><img src="https://i.imgur.com/c5V6AsV.png" alt=""></p>
 <h3 id="5-將分享內容傳遞到containing-app中">5. 將分享內容傳遞到Containing app中</h3>
 <h4 id="--分享內容存放的地方">- 分享內容存放的地方</h4>
-<!-- raw HTML omitted -->
 <p><strong>(1) UserDefaults</strong><br>
 <strong>(2) FileManager</strong><br>
 <strong>(3) CoreData</strong></p>
-<!-- raw HTML omitted -->
 <h4 id="--啟動project-app的方法">- 啟動Project App的方法</h4>
-<!-- raw HTML omitted -->
 <p><strong>[注意]</strong> ShareExtension無法使用<code>extensionContext.open(URL: URL, completionHandler: ((Bool) -&gt; Void)?)</code> 的方式開啟Project App</p>
-<!-- raw HTML omitted -->
 <p><!-- raw HTML omitted -->必須使用方法<code>openURL(_ url: URL)</code>如下： <!-- raw HTML omitted -->(可以通過審核！)<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> appURL: String = <span style="color:#e6db74">&#34;forum://shareExtension&#34;</span>
 
@@ -443,9 +426,7 @@
 }
 </code></pre></div><p><!-- raw HTML omitted -->在Project APP的Info.plist設定URL Scheme (ex: forum)<!-- raw HTML omitted -->
 <img src="https://i.imgur.com/74Z61is.png" alt=""></p>
-<!-- raw HTML omitted -->
 <p>並在Project APP的AppDelegate設定可以接收到shareExtension傳進來的連結(ex:&ldquo;forum://shareExtension&rdquo;)</p>
-<!-- raw HTML omitted -->
 <pre tabindex="0"><code>func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -&gt; Bool {
     if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
     components.host == &quot;shareExtension&quot; {
@@ -482,7 +463,6 @@ class ShareViewController: SLComposeServiceViewController {
 }
 </code></pre><p><img src="https://i.imgur.com/8LaHFof.png" alt=""></p>
 <h2 id="四客製化分享彈窗">四、客製化分享彈窗</h2>
-<!-- raw HTML omitted -->
 <ol>
 <li>刪除 MainInterface.storyboard</li>
 <li>Info.plist 刪除 NSExtensionMainStoryboard</li>
@@ -494,7 +474,6 @@ class ShareViewController: SLComposeServiceViewController {
 <li>在入口ViewController(EntryViewController)類別上加上<code>@objc (EntryViewController)</code></li>
 <li>可以如同專案中的ViewController繼承UIViewController或UINavigationController，自由的刻出想要的分享畫面</li>
 </ol>
-<!-- raw HTML omitted -->
 <p><img src="https://i.imgur.com/J06Q4LJ.png" alt=""></p>
 <p><!-- raw HTML omitted --><strong>EntryViewController</strong><!-- raw HTML omitted --></p>
 <pre tabindex="0"><code class="language-swift=" data-lang="swift=">import UIKit
@@ -509,10 +488,8 @@ class EntryViewController : UIViewController {
         self.present(vc, animated: true)
     }
 }
-</code></pre><!-- raw HTML omitted -->
-<p>[補充1]<br>
+</code></pre><p>[補充1]<br>
 EntryViewController第9行，需要把<code>extensionContext</code>傳遞給下一個ShareViewController。實測只有iOS14以上可以不用傳遞，各個ViewController都取得到<code>extensionContext</code>的內容，但不到iOS14版本不傳遞下去，在其他ViewController取到的<code>extensionContext＝nil</code>。</p>
-<!-- raw HTML omitted -->
 <p><!-- raw HTML omitted --><strong>ShareViewController</strong><!-- raw HTML omitted --></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Social</span>
@@ -984,10 +961,8 @@ EntryViewController第9行，需要把<code>extensionContext</code>傳遞給下�
         }
     }
 }    
-</code></pre></div><!-- raw HTML omitted -->
-<p>[補充2]<br>
+</code></pre></div><p>[補充2]<br>
 ShareViewController的338,339行為進行圖檔壓縮。從外部分享的照片可能因為檔案過大造成儲存失敗，因此需先將圖片壓縮至目標寬度，再用二分壓縮法將圖片壓縮至目標大小再儲存。</p>
-<!-- raw HTML omitted -->
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">UIImage</span>{
 
 	<span style="color:#75715e">/// 壓縮圖片大小至目標寬度</span>
@@ -1052,14 +1027,12 @@ ShareViewController的338,339行為進行圖檔壓縮。從外部分享的照片
     }
 }
 </code></pre></div><h2 id="五參考資料">五、參考資料</h2>
-<!-- raw HTML omitted -->
 <ul>
 <li><a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/AppExtensionKeys.html">官方文件</a></li>
 <li><a href="https://www.jianshu.com/p/a24ae0eb69d5">主要參考文件(包括開啟APP的方法)</a></li>
 <li><a href="https://diamantidis.github.io/2020/01/11/share-extension-custom-ui">客製化分享彈窗</a></li>
 <li>延伸：<a href="https://developer.apple.com/documentation/foundation/app_extension_support/supporting_suggestions_in_your_app_s_share_extension">分享訊息： INSendMessageIntent</a></li>
 </ul>
-<!-- raw HTML omitted -->
 
               
 
