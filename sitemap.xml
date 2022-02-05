@@ -5,19 +5,19 @@
     <loc>https://tientiensmile.github.io/categories/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tientiensmile.github.io/2022/02/observable/</loc>
+    <loc>https://tientiensmile.github.io/posts/observable/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tientiensmile.github.io/posts/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tientiensmile.github.io/tags/rxswift/</loc>
-    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://tientiensmile.github.io/categories/rxswift/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tientiensmile.github.io/2022/02/subjects/</loc>
+    <loc>https://tientiensmile.github.io/tags/rxswift/</loc>
+    <lastmod>2022-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tientiensmile.github.io/posts/subjects/</loc>
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tientiensmile.github.io/tags/</loc>
@@ -27,5 +27,9 @@
     <lastmod>2022-02-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tientiensmile.github.io/archives/</loc>
+  </url><url>
+    <loc>https://tientiensmile.github.io/search/</loc>
+  </url><url>
+    <loc>https://tientiensmile.github.io/series/</loc>
   </url>
 </urlset>

@@ -1,56 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>RxSwift on Tientien🙂</title>
+    <title>RxSwift on Tien</title>
     <link>https://tientiensmile.github.io/categories/rxswift/</link>
-    <description>Recent content in RxSwift on Tientien🙂</description>
+    <description>Recent content in RxSwift on Tien</description>
+    <image>
+      <url>https://tientiensmile.github.io/papermod-cover.png</url>
+      <link>https://tientiensmile.github.io/papermod-cover.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     <lastBuildDate>Sat, 05 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tientiensmile.github.io/categories/rxswift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Observable</title>
-      <link>https://tientiensmile.github.io/2022/02/observable/</link>
+      <link>https://tientiensmile.github.io/posts/observable/</link>
       <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://tientiensmile.github.io/2022/02/observable/</guid>
+      <guid>https://tientiensmile.github.io/posts/observable/</guid>
       <description>每一個 Observable 就只是一個序列(Sequence)而已。
 subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
 建立Observables 建立一個只有一個 element，值為1的observable
-     1
-  let observable = Observable.just(1)      建立一個三個element，型別為int的observable
-     1
-  let observable2 = Observable.of(1,2,3)      建立一個只有一個element，為int陣列的observable
-     1
-  let observable3 = Observable.of([1,2,3])      用from遍歷陣列中每一個element，相當於observable2
-     1
-  let observable4 = Observable.</description>
+let observable = Observable.just(1) 建立一個三個element，型別為int的observable
+let observable2 = Observable.of(1,2,3) 建立一個只有一個element，為int陣列的observable
+let observable3 = Observable.of([1,2,3]) 用from遍歷陣列中每一個element，相當於observable2
+let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subscribe { event in print(event) } /// 印出結果 next(1) next(2) next(3) completed /// 取得Observable中的值 observable4.subscribe { event in if let element = event.element { print(element) } } /// 較簡易取得element的方法 observable4.subscribe(onNext: { element in print(element) }) /// 印出結果 1 2 3 observable3.subscribe { event in print(event) } /// 印出結果 next([1, 2, 3]) completed 取得Observable中的值</description>
     </item>
     
     <item>
       <title>Subjects</title>
-      <link>https://tientiensmile.github.io/2022/02/subjects/</link>
+      <link>https://tientiensmile.github.io/posts/subjects/</link>
       <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://tientiensmile.github.io/2022/02/subjects/</guid>
+      <guid>https://tientiensmile.github.io/posts/subjects/</guid>
       <description>Subjects 同時是 Observable 也是 Observer
 Publish Subject 訂閱之後才會收到發出的事件。
-     1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-  let subject = PublishSubject&amp;lt;String&amp;gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&amp;#34;Issue 1&amp;#34;) subject.subscribe { event in print(event) } subject.onNext(&amp;#34;Issue 2&amp;#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&amp;#34;Issue 3&amp;#34;)      印出結果
-next(Issue 2)       1
-2
-3
-4
-5
-6</description>
+let subject = PublishSubject&amp;lt;String&amp;gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&amp;#34;Issue 1&amp;#34;) subject.subscribe { event in print(event) } subject.onNext(&amp;#34;Issue 2&amp;#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&amp;#34;Issue 3&amp;#34;) /// 印出結果 next(Issue 2) let subject = PublishSubject&amp;lt;String&amp;gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&amp;#34;Issue 1&amp;#34;) subject.subscribe { event in print(event) } subject.onNext(&amp;#34;Issue 2&amp;#34;) subject.onCompleted() /// Issue 3 在completed之後收不到 subject.onNext(&amp;#34;Issue 3&amp;#34;) /// 印出結果 next(Issue 2) completed Behavior Subject 需給定初始值，因爲訂閱它時，會得到初始值或訂閱前最後一個值。</description>
     </item>
     
   </channel>
