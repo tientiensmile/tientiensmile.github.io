@@ -7,7 +7,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Observable",
+  "headline": "Subjects",
   
   "image": "https://i.imgur.com/dBLW7rX.png",
   
@@ -22,7 +22,7 @@
   },
   "mainEntityOfPage": { 
     "@type": "WebPage",
-    "@id": "https:\/\/tientiensmile.github.io\/2022\/02\/observable\/" 
+    "@id": "https:\/\/tientiensmile.github.io\/2022\/02\/subjects\/" 
   },
   "publisher": {
     "@type": "Organization",
@@ -34,7 +34,7 @@
     }
     
   },
-  "description": "每一個 Observable 就只是一個序列(Sequence)而已。\nsubscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。\n建立Observables 建立一個只有一個 element，值為1的observable\n     1\n  let observable = Observable.just(1)      建立一個三個element，型別為int的observable\n     1\n  let observable2 = Observable.of(1,2,3)      建立一個只有一個element，為int陣列的observable\n     1\n  let observable3 = Observable.of([1,2,3])      用from遍歷陣列中每一個element，相當於observable2\n     1\n  let observable4 = Observable.",
+  "description": "Subjects 同時是 Observable 也是 Observer\nPublish Subject 訂閱之後才會收到發出的事件。\n     1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n  let subject = PublishSubject\u0026lt;String\u0026gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(\u0026#34;Issue 1\u0026#34;) subject.subscribe { event in print(event) } subject.onNext(\u0026#34;Issue 2\u0026#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(\u0026#34;Issue 3\u0026#34;)      印出結果\nnext(Issue 2)       1\n2\n3\n4\n5\n6",
   "keywords": []
 }
 
@@ -45,58 +45,90 @@
 <meta name="generator" content="Hugo 0.92.1 with theme Tranquilpeak 0.5.3-BETA">
 <meta name="author" content="Tientien 🙂">
 <meta name="keywords" content="">
-<meta name="description" content="每一個 Observable 就只是一個序列(Sequence)而已。
-subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
-建立Observables 建立一個只有一個 element，值為1的observable
+<meta name="description" content="Subjects 同時是 Observable 也是 Observer
+Publish Subject 訂閱之後才會收到發出的事件。
      1
-  let observable = Observable.just(1)      建立一個三個element，型別為int的observable
-     1
-  let observable2 = Observable.of(1,2,3)      建立一個只有一個element，為int陣列的observable
-     1
-  let observable3 = Observable.of([1,2,3])      用from遍歷陣列中每一個element，相當於observable2
-     1
-  let observable4 = Observable.">
+2
+3
+4
+5
+6
+7
+8
+9
+10
+  let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;)      印出結果
+next(Issue 2)       1
+2
+3
+4
+5
+6">
 
 
-<meta property="og:description" content="每一個 Observable 就只是一個序列(Sequence)而已。
-subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
-建立Observables 建立一個只有一個 element，值為1的observable
+<meta property="og:description" content="Subjects 同時是 Observable 也是 Observer
+Publish Subject 訂閱之後才會收到發出的事件。
      1
-  let observable = Observable.just(1)      建立一個三個element，型別為int的observable
-     1
-  let observable2 = Observable.of(1,2,3)      建立一個只有一個element，為int陣列的observable
-     1
-  let observable3 = Observable.of([1,2,3])      用from遍歷陣列中每一個element，相當於observable2
-     1
-  let observable4 = Observable.">
+2
+3
+4
+5
+6
+7
+8
+9
+10
+  let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;)      印出結果
+next(Issue 2)       1
+2
+3
+4
+5
+6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Observable">
-<meta name="twitter:title" content="Observable">
-<meta property="og:url" content="https://tientiensmile.github.io/2022/02/observable/">
-<meta property="twitter:url" content="https://tientiensmile.github.io/2022/02/observable/">
+<meta property="og:title" content="Subjects">
+<meta name="twitter:title" content="Subjects">
+<meta property="og:url" content="https://tientiensmile.github.io/2022/02/subjects/">
+<meta property="twitter:url" content="https://tientiensmile.github.io/2022/02/subjects/">
 <meta property="og:site_name" content="Tientien🙂">
-<meta property="og:description" content="每一個 Observable 就只是一個序列(Sequence)而已。
-subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
-建立Observables 建立一個只有一個 element，值為1的observable
+<meta property="og:description" content="Subjects 同時是 Observable 也是 Observer
+Publish Subject 訂閱之後才會收到發出的事件。
      1
-  let observable = Observable.just(1)      建立一個三個element，型別為int的observable
+2
+3
+4
+5
+6
+7
+8
+9
+10
+  let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;)      印出結果
+next(Issue 2)       1
+2
+3
+4
+5
+6">
+<meta name="twitter:description" content="Subjects 同時是 Observable 也是 Observer
+Publish Subject 訂閱之後才會收到發出的事件。
      1
-  let observable2 = Observable.of(1,2,3)      建立一個只有一個element，為int陣列的observable
-     1
-  let observable3 = Observable.of([1,2,3])      用from遍歷陣列中每一個element，相當於observable2
-     1
-  let observable4 = Observable.">
-<meta name="twitter:description" content="每一個 Observable 就只是一個序列(Sequence)而已。
-subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
-建立Observables 建立一個只有一個 element，值為1的observable
-     1
-  let observable = Observable.just(1)      建立一個三個element，型別為int的observable
-     1
-  let observable2 = Observable.of(1,2,3)      建立一個只有一個element，為int陣列的observable
-     1
-  let observable3 = Observable.of([1,2,3])      用from遍歷陣列中每一個element，相當於observable2
-     1
-  let observable4 = Observable.">
+2
+3
+4
+5
+6
+7
+8
+9
+10
+  let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;)      印出結果
+next(Issue 2)       1
+2
+3
+4
+5
+6">
 <meta property="og:locale" content="en-us">
 
   
@@ -137,14 +169,14 @@ subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值�
   <meta property="twitter:image" content="https://i.imgur.com/dBLW7rX.png">
 
 
-    <title>Observable</title>
+    <title>Subjects</title>
 
     <link rel="icon" href="https://tientiensmile.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://tientiensmile.github.io/2022/02/observable/">
+    <link rel="canonical" href="https://tientiensmile.github.io/2022/02/subjects/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -284,7 +316,7 @@ subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值�
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      Observable
+      Subjects
     </h1>
   
   
@@ -311,12 +343,9 @@ subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值�
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              <p><strong>每一個 Observable 就只是一個序列(Sequence)而已。</strong></p>
-<p><img src="https://i.imgur.com/7hs4R3M.png" alt=""></p>
-<p><img src="https://i.imgur.com/PjbNiMi.png" alt=""></p>
-<p>subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。</p>
-<h2 id="建立observables">建立Observables</h2>
-<p>建立一個只有一個 element，值為1的observable<br>
+              <p><strong><code>Subjects</code> 同時是 <code>Observable</code> 也是 <code>Observer</code></strong></p>
+<h2 id="publish-subject">Publish Subject</h2>
+<p>訂閱之後才會收到發出的事件。<br>
 
   
   
@@ -332,18 +361,28 @@ subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值�
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">let observable = Observable.just(1)</code></pre>
+          <pre class="code-highlight language-swift swift"><code class="swift">let subject = PublishSubject&lt;String&gt;()
+/// Issue 1 在訂閱之前收不到
+subject.onNext(&#34;Issue 1&#34;)
+subject.subscribe { event in
+    print(event)
+}
+subject.onNext(&#34;Issue 2&#34;)
+subject.dispose()
+/// Issue 3 在dispose之後收不到
+subject.onNext(&#34;Issue 3&#34;)</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
 </p>
-<p>建立一個三個element，型別為int的observable<br>
-
+<p>印出結果</p>
+<pre tabindex="0"><code>next(Issue 2)
+</code></pre>
   
   
   
@@ -358,17 +397,30 @@ subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值�
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">let observable2 = Observable.of(1,2,3)</code></pre>
+          <pre class="code-highlight language-swift swift"><code class="swift">let subject = PublishSubject&lt;String&gt;()
+/// Issue 1 在訂閱之前收不到
+subject.onNext(&#34;Issue 1&#34;)
+subject.subscribe { event in
+    print(event)
+}
+subject.onNext(&#34;Issue 2&#34;)
+subject.onCompleted()
+/// Issue 3 在completed之後收不到
+subject.onNext(&#34;Issue 3&#34;)</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
-</p>
-<p>建立一個只有一個element，為int陣列的observable<br>
+
+<p>印出結果</p>
+<pre tabindex="0"><code>next(Issue 2)
+completed
+</code></pre><h2 id="behavior-subject">Behavior Subject</h2>
+<p>需給定初始值，因爲訂閱它時，會得到初始值或訂閱前最後一個值。</p>
 
   
   
@@ -384,94 +436,26 @@ subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值�
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">let observable3 = Observable.of([1,2,3])</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
-<p>用from遍歷陣列中每一個element，相當於observable2<br>
+          <pre class="code-highlight language-swift swift"><code class="swift">let subject = BehaviorSubject(value: &#34;Initial value&#34;)
 
-  
-  
-  
-  
-
-
-<figure class="highlight swift language-swift">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">let observable4 = Observable.from([1,2,3])</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
-<h2 id="建立subscriptions">建立Subscriptions</h2>
-<p>
-  
-  
-  
-  
-
-
-<figure class="highlight swift language-swift">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">observable4.subscribe { event in
+subject.subscribe { event in
     print(event)
 }
 
-/// 印出結果
-next(1)
-next(2)
-next(3)
-completed
-
-/// 取得Observable中的值
-observable4.subscribe { event in
-    if let element = event.element {
-        print(element)
-    }
-}
-
-/// 較簡易取得element的方法
-observable4.subscribe(onNext: { element in
-    print(element)
-})
-
-/// 印出結果
-1
-2
-3</code></pre>
+subject.onNext(&#34;Issue 1&#34;)</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
 
-
+<p>印出結果</p>
+<pre tabindex="0"><code>next(Initial value)
+next(Issue 1)
+</code></pre>
   
   
   
@@ -486,134 +470,29 @@ observable4.subscribe(onNext: { element in
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">observable3.subscribe { event in
+          <pre class="code-highlight language-swift swift"><code class="swift">let subject = BehaviorSubject(value: &#34;Initial value&#34;)
+
+subject.onNext(&#34;Last Issue&#34;)
+
+subject.subscribe { event in
     print(event)
 }
 
-/// 印出結果
-next([1, 2, 3])
-completed
-
-/// 取得Observable中的值
-observable3.subscribe(onNext: { element in
-    print(element)
-})
-
-/// 印出結果
-[1, 2, 3]</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
-<h3 id="event---事件">Event - 事件</h3>
-
-  
-  
-  
-  
-
-
-<figure class="highlight swift language-swift">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">enum Event&lt;Element&gt; {
-		case next(Element)
-		case error(Swift.Error)
-		case completed
-}</code></pre>
+subject.onNext(&#34;Issue 1&#34;)</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
 
-<ul>
-<li><code>next</code>：序列產生一個新的元素</li>
-<li><code>completed</code>：序列的所有元素都成功產生，整個序列已經完成</li>
-<li><code>error</code>：創建序列時產生了一個錯誤，導致序列終止</li>
-</ul>
-<h2 id="disposing">Disposing</h2>
-<blockquote>
-<p>當 <code>Observable</code> 有被訂閱(<code>subscribe</code>)，表示建立了訂閱者一直在觀察這個序列，因此當序列完成需要適當的 dispose 這些 subscriptions，否則會產生memory leak。</p>
-</blockquote>
-<p>針對單個訂閱做dispose<br>
-
-  
-  
-  
-  
-
-
-<figure class="highlight swift language-swift">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">let subscription4 = observable4.subscribe(onNext: { element in
-    print(element)
-})
-
-subscription4.dispose()</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-
-使用disposeBag，當序列完成自動進行dispose<br>
-
-  
-  
-  
-  
-
-
-<figure class="highlight swift language-swift">
-  <figcaption>
-    
-  </figcaption>
-  <table>
-    <tbody>
-      <tr>
-        <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-        </td>
-        <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">let disposeBag = DisposeBag()
-Observable.of(&#34;A&#34;, &#34;B&#34;, &#34;C&#34;)
-    .subscribe {
-        print($0)
-    }.disposed(by: disposeBag)</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</figure>
-</p>
-<h2 id="另一種創建序列及訂閱的方法">另一種創建序列及訂閱的方法</h2>
-<blockquote>
-<p>調用 <code>Observable.create</code> 創建序列，在構建函數裡描述元素的產生過程。</p>
-</blockquote>
-<p>當一個序列completed或是出現error就不會再觸發後續的事件<br>
+<p>印出結果</p>
+<pre tabindex="0"><code>next(Last Issue)
+next(Issue 1)
+</code></pre><h2 id="relay-subject">Relay Subject</h2>
+<p>訂閱後可以收到指定數量最新訂閱前發出的事件。</p>
 
   
   
@@ -632,33 +511,194 @@ Observable.of(&#34;A&#34;, &#34;B&#34;, &#34;C&#34;)
           <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre>
         </td>
         <td class="code">
-          <pre class="code-highlight language-swift swift"><code class="swift">Observable&lt;String&gt;.create { observer in
-    observer.onNext(&#34;A&#34;)
-    observer.onCompleted()
-    observer.onNext(&#34;B&#34;)
-    observer.onNext(&#34;C&#34;)
-    return Disposables.create()
-}.subscribe {
-    print($0)
-} onError: {
-    print($0)
-} onCompleted: {
-    print(&#34;Completed&#34;)
-} onDisposed: {
-    print(&#34;Disposed&#34;)
-}.disposed(by: disposeBag)
+          <pre class="code-highlight language-swift swift"><code class="swift">let subject = ReplaySubject&lt;String&gt;.create(bufferSize: 2)
 
-/// 印出結果
-A
-Completed
-Disposed</code></pre>
+subject.onNext(&#34;Issue 1&#34;)
+subject.onNext(&#34;Issue 2&#34;)
+subject.onNext(&#34;Issue 3&#34;)
+
+print(&#34;[Subscription 1]&#34;)
+subject.subscribe { event in
+    print(event)
+}
+
+subject.onNext(&#34;Issue 4&#34;)
+subject.onNext(&#34;Issue 5&#34;)
+subject.onNext(&#34;Issue 6&#34;)
+
+print(&#34;[Subscription 2]&#34;)
+
+subject.subscribe { event in
+    print(event)
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>印出結果</p>
+<pre tabindex="0"><code>ubscription 1]
+next(Issue 2)
+next(Issue 3)
+next(Issue 4)
+next(Issue 5)
+next(Issue 6)
+[Subscription 2]
+next(Issue 5)
+next(Issue 6)
+</code></pre><h2 id="variables">Variables</h2>
+<blockquote>
+<p>即將廢除由 <code>BehaviorRelay</code> 取代</p>
+</blockquote>
+<p>為一個可以儲存值的<code>Behavior Subject</code>，我們可以對其屬性存取值。</p>
+
+  
+  
+  
+  
+
+
+<figure class="highlight swift language-swift">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-swift swift"><code class="swift">let variable = Variable(&#34;Initial value&#34;)
+
+variable.value = &#34;Hello world&#34;
+
+variable.asObservable().subscribe {
+    print($0)
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>印出結果</p>
+<pre tabindex="0"><code>next(Hello world)
+</code></pre><p>訂閱一個字串陣列，當改變陣列內容就會收到事件得到當前陣列的內容。<br>
+
+  
+  
+  
+  
+
+
+<figure class="highlight swift language-swift">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-swift swift"><code class="swift">let variable = Variable([String]())
+
+variable.value.append(&#34;Item 1&#34;)
+variable.asObservable().subscribe {
+    print($0)
+}
+
+variable.value.append(&#34;Item 2&#34;)</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
 </p>
+<p>印出結果</p>
+<pre tabindex="0"><code>next([&quot;Item 1&quot;])
+next([&quot;Item 1&quot;, &quot;Item 2&quot;])
+</code></pre><h2 id="behaviorrelay">BehaviorRelay</h2>
+<blockquote>
+<p>需要 <code>pod 'RxCocoa'</code></p>
+</blockquote>
+<ul>
+<li><code>value</code> 屬性限制為 get-only</li>
+<li>更新值使用 <code>accept()</code></li>
+</ul>
 
+  
+  
+  
+  
+
+
+<figure class="highlight swift language-swift">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-swift swift"><code class="swift">let replay = BehaviorRelay(value: &#34;Item 1&#34;)
+replay.accept(&#34;Hello world&#34;)
+
+replay.asObservable()
+    .subscribe {
+        print($0)
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>印出結果</p>
+<pre tabindex="0"><code>next(Hello world)
+</code></pre><p>值的更新為 <code>accept</code> 收到的值，若要累加需先從屬性中取出原本的值。<br>
+
+  
+  
+  
+  
+
+
+<figure class="highlight swift language-swift">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-swift swift"><code class="swift">let replay = BehaviorRelay(value: [&#34;Item 1&#34;])
+replay.accept([&#34;Item 2&#34;])
+replay.asObservable()
+    .subscribe {
+        print($0)
+    }
+
+replay.accept(replay.value &#43; [&#34;Item 3&#34;])</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</p>
+<p>印出結果</p>
+<pre tabindex="0"><code>next([&quot;Item 2&quot;])
+next([&quot;Item 2&quot;, &quot;Item 3&quot;])
+</code></pre>
               
 
 
@@ -685,7 +725,7 @@ Disposed</code></pre>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://tientiensmile.github.io/2022/02/observable/" data-tooltip="Observable" aria-label="NEXT: Observable">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -693,7 +733,7 @@ Disposed</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://tientiensmile.github.io/2022/02/subjects/" data-tooltip="Subjects" aria-label="PREVIOUS: Subjects">
+            <a class="post-action-btn btn btn--disabled">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -711,19 +751,19 @@ Disposed</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tientiensmile.github.io/2022/02/observable/" title="Share on Facebook" aria-label="Share on Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tientiensmile.github.io/2022/02/subjects/" title="Share on Facebook" aria-label="Share on Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tientiensmile.github.io/2022/02/observable/" title="Share on Twitter" aria-label="Share on Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tientiensmile.github.io/2022/02/subjects/" title="Share on Twitter" aria-label="Share on Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tientiensmile.github.io/2022/02/observable/" title="Share on Linkedin" aria-label="Share on Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tientiensmile.github.io/2022/02/subjects/" title="Share on Linkedin" aria-label="Share on Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -754,9 +794,9 @@ Disposed</code></pre>
     </div>
     <script type="text/javascript">
       var disqus_config = function() {
-        this.page.url = 'https:\/\/tientiensmile.github.io\/2022\/02\/observable\/';
+        this.page.url = 'https:\/\/tientiensmile.github.io\/2022\/02\/subjects\/';
         
-          this.page.identifier = '\/2022\/02\/observable\/'
+          this.page.identifier = '\/2022\/02\/subjects\/'
         
       };
       (function() {
@@ -792,7 +832,7 @@ Disposed</code></pre>
       
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--disabled">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://tientiensmile.github.io/2022/02/observable/" data-tooltip="Observable" aria-label="NEXT: Observable">
           
               <i class="fa fa-angle-left"></i>
               <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -800,7 +840,7 @@ Disposed</code></pre>
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://tientiensmile.github.io/2022/02/subjects/" data-tooltip="Subjects" aria-label="PREVIOUS: Subjects">
+            <a class="post-action-btn btn btn--disabled">
           
               <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
               <i class="fa fa-angle-right"></i>
@@ -818,19 +858,19 @@ Disposed</code></pre>
     </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tientiensmile.github.io/2022/02/observable/" title="Share on Facebook" aria-label="Share on Facebook">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://tientiensmile.github.io/2022/02/subjects/" title="Share on Facebook" aria-label="Share on Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tientiensmile.github.io/2022/02/observable/" title="Share on Twitter" aria-label="Share on Twitter">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://tientiensmile.github.io/2022/02/subjects/" title="Share on Twitter" aria-label="Share on Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i>
         </a>
       </li>
     
       <li class="post-action hide-xs">
-        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tientiensmile.github.io/2022/02/observable/" title="Share on Linkedin" aria-label="Share on Linkedin">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https://tientiensmile.github.io/2022/02/subjects/" title="Share on Linkedin" aria-label="Share on Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </li>
@@ -861,19 +901,19 @@ Disposed</code></pre>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftientiensmile.github.io%2F2022%2F02%2Fobservable%2F" aria-label="Share on Facebook">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftientiensmile.github.io%2F2022%2F02%2Fsubjects%2F" aria-label="Share on Facebook">
           <i class="fab fa-facebook-square" aria-hidden="true"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftientiensmile.github.io%2F2022%2F02%2Fobservable%2F" aria-label="Share on Twitter">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Ftientiensmile.github.io%2F2022%2F02%2Fsubjects%2F" aria-label="Share on Twitter">
           <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftientiensmile.github.io%2F2022%2F02%2Fobservable%2F" aria-label="Share on Linkedin">
+        <a class="share-option-btn" target="new" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftientiensmile.github.io%2F2022%2F02%2Fsubjects%2F" aria-label="Share on Linkedin">
           <i class="fab fa-linkedin" aria-hidden="true"></i><span>Share on Linkedin</span>
         </a>
       </li>
