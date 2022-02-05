@@ -5,6 +5,26 @@
     <link>https://tientiensmile.github.io/</link>
     <description>Recent content on Tientien🙂</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://tientiensmile.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tientiensmile.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Observable</title>
+      <link>https://tientiensmile.github.io/2022/02/observable/</link>
+      <pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://tientiensmile.github.io/2022/02/observable/</guid>
+      <description>每一個 Observable 就只是一個序列(Sequence)而已。
+subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
+建立Observables 建立一個只有一個 element，值為1的observable
+     1
+  let observable = Observable.just(1)      建立一個三個element，型別為int的observable
+     1
+  let observable2 = Observable.of(1,2,3)      建立一個只有一個element，為int陣列的observable
+     1
+  let observable3 = Observable.of([1,2,3])      用from遍歷陣列中每一個element，相當於observable2
+     1
+  let observable4 = Observable.</description>
+    </item>
+    
   </channel>
 </rss>
