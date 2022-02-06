@@ -9,13 +9,13 @@
       <link>https://tientiensmile.github.io/images/avator.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tientiensmile.github.io/categories/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Feb 2022 14:15:59 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/categories/swiftui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SwiftUI - 狀態(State)與綁定(Binding)</title>
-      <link>https://tientiensmile.github.io/posts/%E7%8B%80%E6%85%8Bstate%E8%88%87%E7%B6%81%E5%AE%9Abinding/</link>
-      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      <link>https://tientiensmile.github.io/posts/swiftui_stateandbinding/</link>
+      <pubDate>Sun, 06 Feb 2022 14:15:59 +0800</pubDate>
       
-      <guid>https://tientiensmile.github.io/posts/%E7%8B%80%E6%85%8Bstate%E8%88%87%E7%B6%81%E5%AE%9Abinding/</guid>
+      <guid>https://tientiensmile.github.io/posts/swiftui_stateandbinding/</guid>
       <description>屬性包裝、投射屬性  由 @ 修飾的屬性稱為屬性包裝(Property Wrapper)。 @State、@Binding、@ObjectBinding、@EnvironmentObject都是 @propertyWrapper 修飾的 struct。 對一個由 @ 修飾的屬性，在它前面使用 $ 取得的值，被稱為投射屬性(Projection Property)。 並不是所有的 @ 屬性都提供 $ 的投射訪問方式。  @State  @State 修飾的屬性會被自動轉換為一對 setter 和 getter 對這個屬性進行賦值的操作，它的 body 會被再次調用，進行 View 的刷新。 但由於是 value type ，在不同物件傳遞時透過複製值，因此經過不同層級底層改變並無法更新頂層的值。 訪問 @State 修飾的屬性，所有調用觸發的都是 wrappedValue。 使用 $ 訪問屬性，取得的是 projectedValue ，為一個 Binding 類型的值。  SwiftUI 中 State 定義的關鍵部分
 @propertyWrapper public struct State&amp;lt;Value&amp;gt;: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding&amp;lt;Value&amp;gt; { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self.</description>
     </item>
