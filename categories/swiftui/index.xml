@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>swiftUI on Tientien🙂</title>
-    <link>https://tientiensmile.github.io/tags/swiftui/</link>
-    <description>Recent content in swiftUI on Tientien🙂</description>
+    <title>SwiftUI on Tientien🙂</title>
+    <link>https://tientiensmile.github.io/categories/swiftui/</link>
+    <description>Recent content in SwiftUI on Tientien🙂</description>
     <image>
       <url>https://tientiensmile.github.io/images/avator.png</url>
       <link>https://tientiensmile.github.io/images/avator.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tientiensmile.github.io/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Redux架構</title>
-      <link>https://tientiensmile.github.io/posts/redux%E6%9E%B6%E6%A7%8B/</link>
-      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://tientiensmile.github.io/posts/redux%E6%9E%B6%E6%A7%8B/</guid>
-      <description> 適合 SwiftUI 的架構
- Redux 基本概念  App 為一個狀態機，狀態決定用戶介面。 這些狀態(State)都保存在一個 Store 物件中。 View 不能直接操作 State，只能通過發送 Action 的方式間接改變儲存在 Store 中的 State 。 Reducer 接受原有的 State 和發送過來的 Action，生成新的 State。 用新的 State 替換 Store 中原有的狀態，並用新的狀態來驅動更新介面。  Store 應用程式只有一個 Store，用來保存整個應用程式的 State。 可以透過 store.getState() 取得應用程式當前狀態，但不能直接修改。
-Action Action 為一個普通的物件，用來描述應用程式發生的事情，把數據傳遞給 Store 的唯一途徑。
-Reducer Reducer.reduce(state: action:)是純函數，具體處理狀態的邏輯。
- 純函數：返回值只由調用時的參數決定，不依賴於任何系統狀態，也不改變其作用域之外的變量狀態的函數。
- struct Reducer { static func reduce(state: State, action: Action) -&amp;gt; State { return state.apply(item: action) } } </description>
-    </item>
-    
+    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://tientiensmile.github.io/categories/swiftui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SwiftUI - 狀態(State)與綁定(Binding)</title>
       <link>https://tientiensmile.github.io/posts/%E7%8B%80%E6%85%8Bstate%E8%88%87%E7%B6%81%E5%AE%9Abinding/</link>
