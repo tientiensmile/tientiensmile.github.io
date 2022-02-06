@@ -63,8 +63,8 @@
 @propertyWrapper public struct State&lt;Value&gt;: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding&lt;Value&gt; { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tientiensmile.github.io/posts/swiftui_stateandbinding/" /><meta property="og:image" content="https://tientiensmile.github.io/images/avator.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-06T14:15:59&#43;08:00" />
-<meta property="article:modified_time" content="2022-02-06T14:15:59&#43;08:00" />
+<meta property="article:published_time" content="2022-02-06T14:15:00&#43;08:00" />
+<meta property="article:modified_time" content="2022-02-06T14:15:00&#43;08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://tientiensmile.github.io/images/avator.png"/>
@@ -107,8 +107,8 @@
   "articleBody": "屬性包裝、投射屬性  由 @ 修飾的屬性稱為屬性包裝(Property Wrapper)。 @State、@Binding、@ObjectBinding、@EnvironmentObject都是 @propertyWrapper 修飾的 struct。 對一個由 @ 修飾的屬性，在它前面使用 $ 取得的值，被稱為投射屬性(Projection Property)。 並不是所有的 @ 屬性都提供 $ 的投射訪問方式。  @State  @State 修飾的屬性會被自動轉換為一對 setter 和 getter 對這個屬性進行賦值的操作，它的 body 會被再次調用，進行 View 的刷新。 但由於是 value type ，在不同物件傳遞時透過複製值，因此經過不同層級底層改變並無法更新頂層的值。 訪問 @State 修飾的屬性，所有調用觸發的都是 wrappedValue。 使用 $ 訪問屬性，取得的是 projectedValue ，為一個 Binding 類型的值。  SwiftUI 中 State 定義的關鍵部分\n@propertyWrapper public struct State: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self.count += 1 } label: { Circle() .frame(width: 150, height: 150, alignment: .center) .foregroundColor(.blue) .overlay { Text(\"\\(count)\") .font(.system(size:72, weight: .bold)) .foregroundColor(.white) } } } } @Binding  和 @State 類似，也是對屬性的修飾，但將 value type 轉換為 reference type。 對 @Binding 修飾的屬性進行賦值，改變的是其參考，因此可以在不同物件傳遞。  範例：同上(將按鈕定義為CounterButton)  CounterButton 中宣告 count 變數以 @Binding 修飾，在 ContentView 以 projectedValue 將 $counter 傳遞至 CounterButton，當點擊按鈕 count 值改變，畫面改變，counter亦跟著改變。   print(counter) 印出結果皆為 1, 2, 3…\n  若 CounterButton 中宣告 count 變數以 @State 修飾，在 ContentView 以 wrappedValue 將 counter 傳遞至 CounterButton，當點擊按鈕 count 值改變，畫面改變，但 counter 不會跟著改變。   print(counter) 印出結果皆為 0\n struct ContentView: View { @State private var counter: Int = 0 var body: some View { CounterButton(count: $counter) { print(counter) } } } struct CounterButton: View { @Binding var count: Int var body: some View { Button { self.count += 1 } label: { Circle() .frame(width: 150, height: 150, alignment: .center) .foregroundColor(.blue) .overlay { Text(\"\\(count)\") .font(.system(size:72, weight: .bold)) .foregroundColor(.white) } } } } ",
   "wordCount" : "247",
   "inLanguage": "en",
-  "datePublished": "2022-02-06T14:15:59+08:00",
-  "dateModified": "2022-02-06T14:15:59+08:00",
+  "datePublished": "2022-02-06T14:15:00+08:00",
+  "dateModified": "2022-02-06T14:15:00+08:00",
   "author":{
     "@type": "Person",
     "name": "Tientien🙂"
@@ -205,7 +205,7 @@
     <h1 class="post-title">
       SwiftUI - 狀態(State)與綁定(Binding)
     </h1>
-    <div class="post-meta"><span title='2022-02-06 14:15:59 +0800 CST'>2022-02-06 14:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien🙂
+    <div class="post-meta"><span title='2022-02-06 14:15:00 +0800 CST'>2022-02-06 14:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien🙂
 
 </div>
   </header> <div class="toc">
