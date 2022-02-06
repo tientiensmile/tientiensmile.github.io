@@ -12,10 +12,10 @@
     <lastBuildDate>Sat, 05 Feb 2022 12:15:00 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/tags/rxswift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RxSwift - Subjects</title>
-      <link>https://tientiensmile.github.io/posts/rxswift_subjects/</link>
+      <link>https://tientiensmile.github.io/posts/rxswift/rxswift_subjects/</link>
       <pubDate>Sat, 05 Feb 2022 12:15:00 +0800</pubDate>
       
-      <guid>https://tientiensmile.github.io/posts/rxswift_subjects/</guid>
+      <guid>https://tientiensmile.github.io/posts/rxswift/rxswift_subjects/</guid>
       <description>Subjects 同時是 Observable 也是 Observer
 Publish Subject 訂閱之後才會收到發出的事件。
 let subject = PublishSubject&amp;lt;String&amp;gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&amp;#34;Issue 1&amp;#34;) subject.subscribe { event in print(event) } subject.onNext(&amp;#34;Issue 2&amp;#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&amp;#34;Issue 3&amp;#34;) /// 印出結果 next(Issue 2) let subject = PublishSubject&amp;lt;String&amp;gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&amp;#34;Issue 1&amp;#34;) subject.subscribe { event in print(event) } subject.onNext(&amp;#34;Issue 2&amp;#34;) subject.onCompleted() /// Issue 3 在completed之後收不到 subject.onNext(&amp;#34;Issue 3&amp;#34;) /// 印出結果 next(Issue 2) completed Behavior Subject 需給定初始值，因爲訂閱它時，會得到初始值或訂閱前最後一個值。</description>
@@ -23,10 +23,10 @@ let subject = PublishSubject&amp;lt;String&amp;gt;() /// Issue 1 在訂閱之前
     
     <item>
       <title>RxSwift - Observable</title>
-      <link>https://tientiensmile.github.io/posts/rxswift_observable/</link>
+      <link>https://tientiensmile.github.io/posts/rxswift/rxswift_observable/</link>
       <pubDate>Sat, 05 Feb 2022 10:15:00 +0800</pubDate>
       
-      <guid>https://tientiensmile.github.io/posts/rxswift_observable/</guid>
+      <guid>https://tientiensmile.github.io/posts/rxswift/rxswift_observable/</guid>
       <description>每一個 Observable 就只是一個序列(Sequence)而已。
 subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
 建立Observables 建立一個只有一個 element，值為1的observable
