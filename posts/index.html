@@ -177,6 +177,23 @@ let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subsc
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Redux架構
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p> 適合 SwiftUI 的架構
+ Redux 基本概念  App 為一個狀態機，狀態決定用戶介面。 這些狀態(State)都保存在一個 Store 物件中。 View 不能直接操作 State，只能通過發送 Action 的方式間接改變儲存在 Store 中的 State 。 Reducer 接受原有的 State 和發送過來的 Action，生成新的 State。 用新的 State 替換 Store 中原有的狀態，並用新的狀態來驅動更新介面。  Store 應用程式只有一個 Store，用來保存整個應用程式的 State。 可以透過 store.getState() 取得應用程式當前狀態，但不能直接修改。
+Action Action 為一個普通的物件，用來描述應用程式發生的事情，把數據傳遞給 Store 的唯一途徑。
+Reducer Reducer.reduce(state: action:)是純函數，具體處理狀態的邏輯。
+ 純函數：返回值只由調用時的參數決定，不依賴於任何系統狀態，也不改變其作用域之外的變量狀態的函數。
+ struct Reducer { static func reduce(state: State, action: Action) -&gt; State { return state.apply(item: action) } } </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-05 00:00:00 +0000 UTC'>February 5, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tien</footer>
+  <a class="entry-link" aria-label="post link to Redux架構" href="https://tientiensmile.github.io/posts/redux%E6%9E%B6%E6%A7%8B/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Subjects
     </h2>
   </header>
