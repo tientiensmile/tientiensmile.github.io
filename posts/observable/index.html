@@ -72,12 +72,12 @@ let observable2 = Observable.of(1,2,3) 建立一個只有一個element，為int�
 let observable3 = Observable.of([1,2,3]) 用from遍歷陣列中每一個element，相當於observable2
 let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subscribe { event in print(event) } /// 印出結果 next(1) next(2) next(3) completed /// 取得Observable中的值 observable4.subscribe { event in if let element = event.element { print(element) } } /// 較簡易取得element的方法 observable4.subscribe(onNext: { element in print(element) }) /// 印出結果 1 2 3 observable3.subscribe { event in print(event) } /// 印出結果 next([1, 2, 3]) completed 取得Observable中的值" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tientiensmile.github.io/posts/observable/" /><meta property="og:image" content="https://tientiensmile.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-05T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2022-02-05T00:00:00&#43;00:00" />
+<meta property="og:url" content="https://tientiensmile.github.io/posts/observable/" /><meta property="og:image" content="https://tientiensmile.github.io/images/avator.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-04T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-02-04T00:00:00&#43;00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://tientiensmile.github.io/papermod-cover.png"/>
+<meta name="twitter:image" content="https://tientiensmile.github.io/images/avator.png"/>
 
 <meta name="twitter:title" content="Observable"/>
 <meta name="twitter:description" content="每一個 Observable 就只是一個序列(Sequence)而已。
@@ -122,8 +122,8 @@ let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subsc
   "articleBody": "每一個 Observable 就只是一個序列(Sequence)而已。\nsubscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。\n建立Observables 建立一個只有一個 element，值為1的observable\nlet observable = Observable.just(1) 建立一個三個element，型別為int的observable\nlet observable2 = Observable.of(1,2,3) 建立一個只有一個element，為int陣列的observable\nlet observable3 = Observable.of([1,2,3]) 用from遍歷陣列中每一個element，相當於observable2\nlet observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subscribe { event in print(event) } /// 印出結果 next(1) next(2) next(3) completed /// 取得Observable中的值 observable4.subscribe { event in if let element = event.element { print(element) } } /// 較簡易取得element的方法 observable4.subscribe(onNext: { element in print(element) }) /// 印出結果 1 2 3 observable3.subscribe { event in print(event) } /// 印出結果 next([1, 2, 3]) completed 取得Observable中的值\nobservable3.subscribe(onNext: { element in print(element) }) /// 印出結果 [1, 2, 3] Event - 事件 enum Event { case next(Element) case error(Swift.Error) case completed }  next：序列產生一個新的元素 completed：序列的所有元素都成功產生，整個序列已經完成 error：創建序列時產生了一個錯誤，導致序列終止  Disposing  當 Observable 有被訂閱(subscribe)，表示建立了訂閱者一直在觀察這個序列，因此當序列完成需要適當的 dispose 這些 subscriptions，否則會產生memory leak。\n 針對單個訂閱做dispose\nlet subscription4 = observable4.subscribe(onNext: { element in print(element) }) subscription4.dispose() 使用disposeBag，當序列完成自動進行dispose\nlet disposeBag = DisposeBag() Observable.of(\"A\", \"B\", \"C\") .subscribe { print($0) }.disposed(by: disposeBag) 另一種創建序列及訂閱的方法  調用 Observable.create 創建序列，在構建函數裡描述元素的產生過程。\n 當一個序列completed或是出現error就不會再觸發後續的事件\nObservable.create { observer in observer.onNext(\"A\") observer.onCompleted() observer.onNext(\"B\") observer.onNext(\"C\") return Disposables.create() }.subscribe { print($0) } onError: { print($0) } onCompleted: { print(\"Completed\") } onDisposed: { print(\"Disposed\") }.disposed(by: disposeBag) /// 印出結果 A Completed Disposed ",
   "wordCount" : "178",
   "inLanguage": "en",
-  "datePublished": "2022-02-05T00:00:00Z",
-  "dateModified": "2022-02-05T00:00:00Z",
+  "datePublished": "2022-02-04T00:00:00Z",
+  "dateModified": "2022-02-04T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "Tientien🙂"
@@ -220,7 +220,7 @@ let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subsc
     <h1 class="post-title">
       Observable
     </h1>
-    <div class="post-meta"><span title='2022-02-05 00:00:00 +0000 UTC'>February 5, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien🙂
+    <div class="post-meta"><span title='2022-02-04 00:00:00 +0000 UTC'>February 4, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien🙂
 
 </div>
   </header> <div class="toc">
@@ -249,9 +249,7 @@ let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subsc
 </div>
 
   <div class="post-content"><p><strong>每一個 Observable 就只是一個序列(Sequence)而已。</strong></p>
-<p><img loading="lazy" src="https://i.imgur.com/7hs4R3M.png" alt=""  />
-</p>
-<p><img loading="lazy" src="https://i.imgur.com/PjbNiMi.png" alt=""  />
+<p><img loading="lazy" src="https://i.imgur.com/MDDvByt.png" alt=""  />
 </p>
 <p>subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。</p>
 <h2 id="建立observables">建立Observables<a hidden class="anchor" aria-hidden="true" href="#建立observables">#</a></h2>
@@ -359,13 +357,8 @@ Disposed
       <li><a href="https://tientiensmile.github.io/tags/rxswift/">rxSwift</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://tientiensmile.github.io/posts/redux%E6%9E%B6%E6%A7%8B/">
+  <a class="prev" href="https://tientiensmile.github.io/posts/subjects/">
     <span class="title">« Prev Page</span>
-    <br>
-    <span>Redux架構</span>
-  </a>
-  <a class="next" href="https://tientiensmile.github.io/posts/subjects/">
-    <span class="title">Next Page »</span>
     <br>
     <span>Subjects</span>
   </a>

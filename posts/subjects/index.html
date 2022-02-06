@@ -64,12 +64,12 @@ let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不�
 Publish Subject 訂閱之後才會收到發出的事件。
 let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.onCompleted() /// Issue 3 在completed之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) completed Behavior Subject 需給定初始值，因爲訂閱它時，會得到初始值或訂閱前最後一個值。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tientiensmile.github.io/posts/subjects/" /><meta property="og:image" content="https://tientiensmile.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://tientiensmile.github.io/posts/subjects/" /><meta property="og:image" content="https://tientiensmile.github.io/images/avator.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-05T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2022-02-05T00:00:00&#43;00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://tientiensmile.github.io/papermod-cover.png"/>
+<meta name="twitter:image" content="https://tientiensmile.github.io/images/avator.png"/>
 
 <meta name="twitter:title" content="Subjects"/>
 <meta name="twitter:description" content="Subjects 同時是 Observable 也是 Observer
@@ -382,8 +382,13 @@ next([<span style="color:#e6db74">&#34;Item 2&#34;</span>, <span style="color:#e
       <li><a href="https://tientiensmile.github.io/tags/rxswift/">rxSwift</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://tientiensmile.github.io/posts/observable/">
+  <a class="prev" href="https://tientiensmile.github.io/posts/redux%E6%9E%B6%E6%A7%8B/">
     <span class="title">« Prev Page</span>
+    <br>
+    <span>Redux架構</span>
+  </a>
+  <a class="next" href="https://tientiensmile.github.io/posts/observable/">
+    <span class="title">Next Page »</span>
     <br>
     <span>Observable</span>
   </a>
