@@ -159,6 +159,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>RxSwift - combineLatest、skip、do
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>combineLatest  將多個 Observables 中最新的元素透過一個函數組合起來，然後將結果發出來。  let disposeBag = DisposeBag() let first = PublishSubject&lt;String&gt;() let second = PublishSubject&lt;String&gt;() Observable.combineLatest(first, second) { $0 &#43; $1 } .dubscribe(onNext: { print($0) }) .disposed(by: disposeBag) first.onNext(&#34;1&#34;) second.onNext(&#34;A&#34;) first.onNext(&#34;2&#34;) second.onNext(&#34;B&#34;) second.onNext(&#34;C&#34;) second.onNext(&#34;D&#34;) first.onNext(&#34;3&#34;) first.onNext(&#34;4&#34;) 印出結果
+1A 2A 2B 2C 2D 3D 4D skip  跳過 Observable 中頭 n 個元素  do  使用 do 來監聽事件的生命週期，它會在每一次事件發送前被調用。 它和 subscribe 一樣，可以通過不同的閉包回調不同類型的事件。 如：do(onNext: ) 在 subscribe(onNext:) 前，do(onCompleted:) 在 subscribe(onCompleted:) 前調用。  let observable = Observable....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-13 17:35:00 +0800 CST'>2022-02-13 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - combineLatest、skip、do" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>SwiftUI - ObservableObject
     </h2>
   </header>
@@ -213,24 +226,11 @@ let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不�
   <footer class="entry-footer"><span title='2022-02-05 12:15:00 +0800 CST'>2022-02-05 12:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
   <a class="entry-link" aria-label="post link to RxSwift - Subjects" href="https://tientiensmile.github.io/posts/rxswift/rxswift_subjects/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>RxSwift - Observable
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>每一個 Observable 就只是一個序列(Sequence)而已。
-subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
-建立Observables 建立一個只有一個 element，值為1的observable
-let observable = Observable.just(1) 建立一個三個element，型別為int的observable
-let observable2 = Observable.of(1,2,3) 建立一個只有一個element，為int陣列的observable
-let observable3 = Observable.of([1,2,3]) 用from遍歷陣列中每一個element，相當於observable2
-let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subscribe { event in print(event) } /// 印出結果 next(1) next(2) next(3) completed /// 取得Observable中的值 observable4.subscribe { event in if let element = event.element { print(element) } } /// 較簡易取得element的方法 observable4.subscribe(onNext: { element in print(element) }) /// 印出結果 1 2 3 observable3.subscribe { event in print(event) } /// 印出結果 next([1, 2, 3]) completed 取得Observable中的值...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Observable" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observable/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://tientiensmile.github.io/posts/page/2/">Next Page »</a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

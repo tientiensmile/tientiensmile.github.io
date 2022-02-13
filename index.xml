@@ -9,7 +9,17 @@
       <link>https://tientiensmile.github.io/images/avator.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 06 Feb 2022 18:00:00 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Feb 2022 17:35:00 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RxSwift - combineLatest、skip、do</title>
+      <link>https://tientiensmile.github.io/posts/rxswift/rxswift_operators/</link>
+      <pubDate>Sun, 13 Feb 2022 17:35:00 +0800</pubDate>
+      
+      <guid>https://tientiensmile.github.io/posts/rxswift/rxswift_operators/</guid>
+      <description>combineLatest  將多個 Observables 中最新的元素透過一個函數組合起來，然後將結果發出來。  let disposeBag = DisposeBag() let first = PublishSubject&amp;lt;String&amp;gt;() let second = PublishSubject&amp;lt;String&amp;gt;() Observable.combineLatest(first, second) { $0 + $1 } .dubscribe(onNext: { print($0) }) .disposed(by: disposeBag) first.onNext(&amp;#34;1&amp;#34;) second.onNext(&amp;#34;A&amp;#34;) first.onNext(&amp;#34;2&amp;#34;) second.onNext(&amp;#34;B&amp;#34;) second.onNext(&amp;#34;C&amp;#34;) second.onNext(&amp;#34;D&amp;#34;) first.onNext(&amp;#34;3&amp;#34;) first.onNext(&amp;#34;4&amp;#34;) 印出結果
+1A 2A 2B 2C 2D 3D 4D skip  跳過 Observable 中頭 n 個元素  do  使用 do 來監聽事件的生命週期，它會在每一次事件發送前被調用。 它和 subscribe 一樣，可以通過不同的閉包回調不同類型的事件。 如：do(onNext: ) 在 subscribe(onNext:) 前，do(onCompleted:) 在 subscribe(onCompleted:) 前調用。  let observable = Observable.</description>
+    </item>
+    
     <item>
       <title>SwiftUI - ObservableObject</title>
       <link>https://tientiensmile.github.io/posts/swiftui_observableobject/</link>
@@ -56,7 +66,7 @@ let subject = PublishSubject&amp;lt;String&amp;gt;() /// Issue 1 在訂閱之前
     </item>
     
     <item>
-      <title>RxSwift - Observable</title>
+      <title>RxSwift - Observable 可監聽序列</title>
       <link>https://tientiensmile.github.io/posts/rxswift/rxswift_observable/</link>
       <pubDate>Sat, 05 Feb 2022 10:15:00 +0800</pubDate>
       
@@ -68,6 +78,20 @@ let observable = Observable.just(1) 建立一個三個element，型別為int的o
 let observable2 = Observable.of(1,2,3) 建立一個只有一個element，為int陣列的observable
 let observable3 = Observable.of([1,2,3]) 用from遍歷陣列中每一個element，相當於observable2
 let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subscribe { event in print(event) } /// 印出結果 next(1) next(2) next(3) completed /// 取得Observable中的值 observable4.subscribe { event in if let element = event.element { print(element) } } /// 較簡易取得element的方法 observable4.subscribe(onNext: { element in print(element) }) /// 印出結果 1 2 3 observable3.subscribe { event in print(event) } /// 印出結果 next([1, 2, 3]) completed 取得Observable中的值</description>
+    </item>
+    
+    <item>
+      <title>RxSwift - Observer 觀察者</title>
+      <link>https://tientiensmile.github.io/posts/rxswift/rxswift_observer/</link>
+      <pubDate>Sat, 05 Feb 2022 10:15:00 +0800</pubDate>
+      
+      <guid>https://tientiensmile.github.io/posts/rxswift/rxswift_observer/</guid>
+      <description>觀察者是用來監聽序列，當收到事件作出響應。
+建立觀察者 對一個 Observable 進行 subscribe。事件發生時於後面的 onNext、onError、onCompleted作出響應。
+tap.subscribe(onNext: { [weak self] in self?.showAlert() }, onError: { error in print(&amp;#34;發生錯誤： \(error.localizedDescription)&amp;#34;) }, onCompleted: { print(&amp;#34;完成任務&amp;#34;) }) AnyObserver AnyObserver 可以用來描述任意一種觀察者。
+範例：印出網路請求結果
+URLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(onNext: { data in print(&amp;#34;Data Task Success with count: \(data.count)&amp;#34;) }, onError: { error in print(&amp;#34;Data Task Error: \(error)&amp;#34;) }) .disposed(by: disposeBag) 可以改寫為
+let observer: AnyObserver&amp;lt;Data&amp;gt; = AnyObserver { (event) in switch event { case .next(let data): print(&amp;#34;Data Task Success with count: \(data.</description>
     </item>
     
     

@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>RxSwift | Tientien🙂</title>
+<title>Posts | Tientien🙂</title>
 <meta name="keywords" content="" />
-<meta name="description" content="The literal meaning of life is whatever you’re doing that prevents you from killing yourself.">
+<meta name="description" content="Posts - Tientien🙂">
 <meta name="author" content="Tientien">
-<link rel="canonical" href="https://tientiensmile.github.io/categories/rxswift/" />
+<link rel="canonical" href="https://tientiensmile.github.io/posts/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://tientiensmile.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://tientiensmile.github.io/favicon-16x16.png">
@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.92.1" />
-<link rel="alternate" type="application/rss+xml" href="https://tientiensmile.github.io/categories/rxswift/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://tientiensmile.github.io/posts/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,17 +56,32 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="RxSwift" />
+</noscript><meta property="og:title" content="Posts" />
 <meta property="og:description" content="The literal meaning of life is whatever you’re doing that prevents you from killing yourself." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://tientiensmile.github.io/categories/rxswift/" /><meta property="og:image" content="https://tientiensmile.github.io/images/avator.png"/>
+<meta property="og:url" content="https://tientiensmile.github.io/posts/" /><meta property="og:image" content="https://tientiensmile.github.io/images/avator.png"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://tientiensmile.github.io/images/avator.png"/>
 
-<meta name="twitter:title" content="RxSwift"/>
+<meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="The literal meaning of life is whatever you’re doing that prevents you from killing yourself."/>
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tientiensmile.github.io/posts/"
+    }
+  ]
+}
+</script>
 </head>
 
 <body class="list" id="top">
@@ -116,7 +131,7 @@
             </li>
             <li>
                 <a href="https://tientiensmile.github.io/posts/" title="Posts">
-                    <span>Posts</span>
+                    <span class="active">Posts</span>
                 </a>
             </li>
             <li>
@@ -138,38 +153,11 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://tientiensmile.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://tientiensmile.github.io/categories/">Categories</a></div>
-  <h1>RxSwift</h1>
+<header class="page-header"><div class="breadcrumbs"><a href="https://tientiensmile.github.io/">Home</a></div>
+  <h1>Posts</h1>
 </header>
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>RxSwift - combineLatest、skip、do
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>combineLatest  將多個 Observables 中最新的元素透過一個函數組合起來，然後將結果發出來。  let disposeBag = DisposeBag() let first = PublishSubject&lt;String&gt;() let second = PublishSubject&lt;String&gt;() Observable.combineLatest(first, second) { $0 &#43; $1 } .dubscribe(onNext: { print($0) }) .disposed(by: disposeBag) first.onNext(&#34;1&#34;) second.onNext(&#34;A&#34;) first.onNext(&#34;2&#34;) second.onNext(&#34;B&#34;) second.onNext(&#34;C&#34;) second.onNext(&#34;D&#34;) first.onNext(&#34;3&#34;) first.onNext(&#34;4&#34;) 印出結果
-1A 2A 2B 2C 2D 3D 4D skip  跳過 Observable 中頭 n 個元素  do  使用 do 來監聽事件的生命週期，它會在每一次事件發送前被調用。 它和 subscribe 一樣，可以通過不同的閉包回調不同類型的事件。 如：do(onNext: ) 在 subscribe(onNext:) 前，do(onCompleted:) 在 subscribe(onCompleted:) 前調用。  let observable = Observable....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-13 17:35:00 +0800 CST'>2022-02-13 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - combineLatest、skip、do" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>RxSwift - Subjects
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Subjects 同時是 Observable 也是 Observer
-Publish Subject 訂閱之後才會收到發出的事件。
-let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.onCompleted() /// Issue 3 在completed之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) completed Behavior Subject 需給定初始值，因爲訂閱它時，會得到初始值或訂閱前最後一個值。...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-05 12:15:00 +0800 CST'>2022-02-05 12:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Subjects" href="https://tientiensmile.github.io/posts/rxswift/rxswift_subjects/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
+<article class="post-entry"> 
   <header class="entry-header">
     <h2>RxSwift - Observable 可監聽序列
     </h2>
@@ -187,7 +175,7 @@ let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subsc
   <a class="entry-link" aria-label="post link to RxSwift - Observable 可監聽序列" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observable/"></a>
 </article>
 
-<article class="post-entry tag-entry"> 
+<article class="post-entry"> 
   <header class="entry-header">
     <h2>RxSwift - Observer 觀察者
     </h2>
@@ -203,6 +191,11 @@ let observer: AnyObserver&lt;Data&gt; = AnyObserver { (event) in switch event { 
   <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
   <a class="entry-link" aria-label="post link to RxSwift - Observer 觀察者" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observer/"></a>
 </article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://tientiensmile.github.io/posts/">« Prev Page</a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">
