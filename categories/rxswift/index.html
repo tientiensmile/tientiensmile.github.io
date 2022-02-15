@@ -144,6 +144,20 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>RxSwift - take、distinctUntilChanged
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>take  從 Observable 中發出頭 n 個元素，忽略後面的元素直到序列結束。   let disposeBag = DisposeBag() Observable.of(&#34;🐱&#34;, &#34;🐰&#34;, &#34;🐶&#34;, &#34;🐸&#34;, &#34;🐷&#34;, &#34;🐵&#34;) .take(3) .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐰 🐶 distinctUntilChanged  阻止 Observable 發出相同的元素。如果後一個元素和前一個元素相同，將不會發出來，若後一個元素和前一個元素不同才會被發出來。   let disposeBag = DisposeBag() Observable.of(&#34;🐱&#34;, &#34;🐷&#34;, &#34;🐱&#34;, &#34;🐱&#34;, &#34;🐱&#34;, &#34;🐵&#34;, &#34;🐱&#34;) .distinctUntilChanged() .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐷 🐱 🐵 🐱 </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-14 17:35:00 +0800 CST'>2022-02-14 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - take、distinctUntilChanged" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators_2/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>RxSwift - combineLatest、skip、do
     </h2>
   </header>
@@ -152,7 +166,7 @@
 1A 2A 2B 2C 2D 3D 4D skip  跳過 Observable 中頭 n 個元素  do  使用 do 來監聽事件的生命週期，它會在每一次事件發送前被調用。 它和 subscribe 一樣，可以通過不同的閉包回調不同類型的事件。 如：do(onNext: ) 在 subscribe(onNext:) 前，do(onCompleted:) 在 subscribe(onCompleted:) 前調用。  let observable = Observable....</p>
   </section>
   <footer class="entry-footer"><span title='2022-02-13 17:35:00 +0800 CST'>2022-02-13 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - combineLatest、skip、do" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators/"></a>
+  <a class="entry-link" aria-label="post link to RxSwift - combineLatest、skip、do" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators_1/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 

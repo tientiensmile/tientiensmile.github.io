@@ -9,13 +9,24 @@
       <link>https://tientiensmile.github.io/images/avator.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 13 Feb 2022 17:35:00 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/tags/rxswift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 17:35:00 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/tags/rxswift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RxSwift - take、distinctUntilChanged</title>
+      <link>https://tientiensmile.github.io/posts/rxswift/rxswift_operators_2/</link>
+      <pubDate>Mon, 14 Feb 2022 17:35:00 +0800</pubDate>
+      
+      <guid>https://tientiensmile.github.io/posts/rxswift/rxswift_operators_2/</guid>
+      <description>take  從 Observable 中發出頭 n 個元素，忽略後面的元素直到序列結束。   let disposeBag = DisposeBag() Observable.of(&amp;#34;🐱&amp;#34;, &amp;#34;🐰&amp;#34;, &amp;#34;🐶&amp;#34;, &amp;#34;🐸&amp;#34;, &amp;#34;🐷&amp;#34;, &amp;#34;🐵&amp;#34;) .take(3) .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐰 🐶 distinctUntilChanged  阻止 Observable 發出相同的元素。如果後一個元素和前一個元素相同，將不會發出來，若後一個元素和前一個元素不同才會被發出來。   let disposeBag = DisposeBag() Observable.of(&amp;quot;🐱&amp;quot;, &amp;quot;🐷&amp;quot;, &amp;quot;🐱&amp;quot;, &amp;quot;🐱&amp;quot;, &amp;quot;🐱&amp;quot;, &amp;quot;🐵&amp;quot;, &amp;quot;🐱&amp;quot;) .distinctUntilChanged() .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐷 🐱 🐵 🐱 </description>
+    </item>
+    
     <item>
       <title>RxSwift - combineLatest、skip、do</title>
-      <link>https://tientiensmile.github.io/posts/rxswift/rxswift_operators/</link>
+      <link>https://tientiensmile.github.io/posts/rxswift/rxswift_operators_1/</link>
       <pubDate>Sun, 13 Feb 2022 17:35:00 +0800</pubDate>
       
-      <guid>https://tientiensmile.github.io/posts/rxswift/rxswift_operators/</guid>
+      <guid>https://tientiensmile.github.io/posts/rxswift/rxswift_operators_1/</guid>
       <description>combineLatest  將多個 Observables 中最新的元素透過一個函數組合起來，然後將結果發出來。  let disposeBag = DisposeBag() let first = PublishSubject&amp;lt;String&amp;gt;() let second = PublishSubject&amp;lt;String&amp;gt;() Observable.combineLatest(first, second) { $0 + $1 } .dubscribe(onNext: { print($0) }) .disposed(by: disposeBag) first.onNext(&amp;#34;1&amp;#34;) second.onNext(&amp;#34;A&amp;#34;) first.onNext(&amp;#34;2&amp;#34;) second.onNext(&amp;#34;B&amp;#34;) second.onNext(&amp;#34;C&amp;#34;) second.onNext(&amp;#34;D&amp;#34;) first.onNext(&amp;#34;3&amp;#34;) first.onNext(&amp;#34;4&amp;#34;) 印出結果
 1A 2A 2B 2C 2D 3D 4D skip  跳過 Observable 中頭 n 個元素  do  使用 do 來監聽事件的生命週期，它會在每一次事件發送前被調用。 它和 subscribe 一樣，可以通過不同的閉包回調不同類型的事件。 如：do(onNext: ) 在 subscribe(onNext:) 前，do(onCompleted:) 在 subscribe(onCompleted:) 前調用。  let observable = Observable.</description>
     </item>
