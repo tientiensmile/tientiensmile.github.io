@@ -194,7 +194,7 @@
   ContentView 中 model 為 reference type，使用 @ObservedObject 將它和 ContentView 關聯起來。當 model 中的屬性 diceState 將要改變，objectWillChange 就會發出事件，使得 body 被調用進行UI刷新。  struct ContentView: View { @ObservedObject private var model = DiceModel() var body: some View { CounterButton(diceState: $model.diceState) } } class DiceModel: ObservableObject { let objectWillChange = PassthroughSubject&lt;Void, Never&gt;() var diceState: DiceState = ....</p>
   </section>
   <footer class="entry-footer"><span title='2022-02-06 18:00:00 +0800 CST'>2022-02-06 18:00</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to SwiftUI - ObservableObject" href="https://tientiensmile.github.io/posts/swiftui_observableobject/"></a>
+  <a class="entry-link" aria-label="post link to SwiftUI - ObservableObject" href="https://tientiensmile.github.io/posts/swiftui/swiftui_observableobject/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -207,7 +207,7 @@
 @propertyWrapper public struct State&lt;Value&gt;: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding&lt;Value&gt; { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self....</p>
   </section>
   <footer class="entry-footer"><span title='2022-02-06 14:15:00 +0800 CST'>2022-02-06 14:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to SwiftUI - 狀態(State)與綁定(Binding)" href="https://tientiensmile.github.io/posts/swiftui_stateandbinding/"></a>
+  <a class="entry-link" aria-label="post link to SwiftUI - 狀態(State)與綁定(Binding)" href="https://tientiensmile.github.io/posts/swiftui/swiftui_stateandbinding/"></a>
 </article>
 
 <article class="post-entry"> 
