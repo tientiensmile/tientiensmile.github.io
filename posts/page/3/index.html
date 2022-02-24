@@ -159,82 +159,23 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>SwiftUI - ObservableObject
+    <h2>RxSwift - Observer 觀察者
     </h2>
   </header>
   <section class="entry-content">
-    <p>ObservableObject 和 @ObservedObject  ObservableObject 是一個 protocol，要求實現協議的類型為 class，有一個需要實作的屬性 objectWillChange。 當數據將要發生改變時，這個屬性用來向外進行「廣播」，它的訂閱者(一般是 View 相關的邏輯)在收到通知後，對 View 進行刷新。 創建遵從 ObservableObject 協議的類別後，實際在 View 裡使用需要將此物件宣告為 @ObservedObject。  範例：點擊按鈕擲骰子  使用 PassthroughSubject 中 send() 方法通知事件將要發生。 PassthroughSubject 於 Combine 框架中，將於後續介紹。
-  ContentView 中 model 為 reference type，使用 @ObservedObject 將它和 ContentView 關聯起來。當 model 中的屬性 diceState 將要改變，objectWillChange 就會發出事件，使得 body 被調用進行UI刷新。  struct ContentView: View { @ObservedObject private var model = DiceModel() var body: some View { CounterButton(diceState: $model.diceState) } } class DiceModel: ObservableObject { let objectWillChange = PassthroughSubject&lt;Void, Never&gt;() var diceState: DiceState = ....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-06 18:00:00 +0800 CST'>2022-02-06 18:00</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to SwiftUI - ObservableObject" href="https://tientiensmile.github.io/posts/swiftui/swiftui_observableobject/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>SwiftUI - 狀態(State)與綁定(Binding)
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>屬性包裝、投射屬性  由 @ 修飾的屬性稱為屬性包裝(Property Wrapper)。 @State、@Binding、@ObjectBinding、@EnvironmentObject都是 @propertyWrapper 修飾的 struct。 對一個由 @ 修飾的屬性，在它前面使用 $ 取得的值，被稱為投射屬性(Projection Property)。 並不是所有的 @ 屬性都提供 $ 的投射訪問方式。  @State  @State 修飾的屬性會被自動轉換為一對 setter 和 getter 對這個屬性進行賦值的操作，它的 body 會被再次調用，進行 View 的刷新。 但由於是 value type ，在不同物件傳遞時透過複製值，因此經過不同層級底層改變並無法更新頂層的值。 訪問 @State 修飾的屬性，所有調用觸發的都是 wrappedValue。 使用 $ 訪問屬性，取得的是 projectedValue ，為一個 Binding 類型的值。  SwiftUI 中 State 定義的關鍵部分
-@propertyWrapper public struct State&lt;Value&gt;: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding&lt;Value&gt; { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-06 14:15:00 +0800 CST'>2022-02-06 14:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to SwiftUI - 狀態(State)與綁定(Binding)" href="https://tientiensmile.github.io/posts/swiftui/swiftui_stateandbinding/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Redux架構
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p> 適合 SwiftUI 的架構
- Redux 基本概念  App 為一個狀態機，狀態決定用戶介面。 這些狀態(State)都保存在一個 Store 物件中。 View 不能直接操作 State，只能通過發送 Action 的方式間接改變儲存在 Store 中的 State 。 Reducer 接受原有的 State 和發送過來的 Action，生成新的 State。 用新的 State 替換 Store 中原有的狀態，並用新的狀態來驅動更新介面。  Store 應用程式只有一個 Store，用來保存整個應用程式的 State。 可以透過 store.getState() 取得應用程式當前狀態，但不能直接修改。
-Action Action 為一個普通的物件，用來描述應用程式發生的事情，把數據傳遞給 Store 的唯一途徑。
-Reducer Reducer.reduce(state: action:)是純函數，具體處理狀態的邏輯。
- 純函數：返回值只由調用時的參數決定，不依賴於任何系統狀態，也不改變其作用域之外的變量狀態的函數。
- struct Reducer { static func reduce(state: State, action: Action) -&gt; State { return state.apply(item: action) } } </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-06 09:20:00 +0800 CST'>2022-02-06 09:20</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to Redux架構" href="https://tientiensmile.github.io/posts/redux_intro/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>RxSwift - Subjects
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Subjects 同時是 Observable 也是 Observer
-Publish Subject 訂閱之後才會收到發出的事件。
-let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.onCompleted() /// Issue 3 在completed之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) completed Behavior Subject 需給定初始值，因爲訂閱它時，會得到初始值或訂閱前最後一個值。...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-05 12:15:00 +0800 CST'>2022-02-05 12:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Subjects" href="https://tientiensmile.github.io/posts/rxswift/rxswift_subjects/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>RxSwift - Observable 可監聽序列
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>每一個 Observable 就只是一個序列(Sequence)而已。
-subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
-建立Observables 建立一個只有一個 element，值為1的observable
-let observable = Observable.just(1) 建立一個三個element，型別為int的observable
-let observable2 = Observable.of(1,2,3) 建立一個只有一個element，為int陣列的observable
-let observable3 = Observable.of([1,2,3]) 用from遍歷陣列中每一個element，相當於observable2
-let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subscribe { event in print(event) } /// 印出結果 next(1) next(2) next(3) completed /// 取得Observable中的值 observable4.subscribe { event in if let element = event.element { print(element) } } /// 較簡易取得element的方法 observable4.subscribe(onNext: { element in print(element) }) /// 印出結果 1 2 3 observable3.subscribe { event in print(event) } /// 印出結果 next([1, 2, 3]) completed 取得Observable中的值...</p>
+    <p>觀察者是用來監聽序列，當收到事件作出響應。
+建立觀察者 對一個 Observable 進行 subscribe。事件發生時於後面的 onNext、onError、onCompleted作出響應。
+tap.subscribe(onNext: { [weak self] in self?.showAlert() }, onError: { error in print(&#34;發生錯誤： \(error.localizedDescription)&#34;) }, onCompleted: { print(&#34;完成任務&#34;) }) AnyObserver AnyObserver 可以用來描述任意一種觀察者。
+範例：印出網路請求結果
+URLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(onNext: { data in print(&#34;Data Task Success with count: \(data.count)&#34;) }, onError: { error in print(&#34;Data Task Error: \(error)&#34;) }) .disposed(by: disposeBag) 可以改寫為
+let observer: AnyObserver&lt;Data&gt; = AnyObserver { (event) in switch event { case .next(let data): print(&#34;Data Task Success with count: \(data....</p>
   </section>
   <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Observable 可監聽序列" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observable/"></a>
+  <a class="entry-link" aria-label="post link to RxSwift - Observer 觀察者" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observer/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://tientiensmile.github.io/posts/">« Prev Page</a>
-    <a class="next" href="https://tientiensmile.github.io/posts/page/3/">Next Page »</a>
+    <a class="prev" href="https://tientiensmile.github.io/posts/page/2/">« Prev Page</a>
   </nav>
 </footer>
     </main>

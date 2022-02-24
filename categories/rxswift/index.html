@@ -144,6 +144,20 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>RxSwift - Combination Operators
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Combination Operators  將多個 Observable 組合成單個 Observable 運算符。  startWith  開始從某個 Observable 發出元素之前發出指定的元素序列。   每個連續的 startWith 元素都將在前一個 startWith 元素之前添加。
+ let disposeBag = DisposeBag() Observable.of(&#34;A&#34;, &#34;B&#34;, &#34;C&#34;, &#34;D&#34;) .startWith(&#34;1&#34;) .startWith(&#34;a&#34;, &#34;b&#34;, &#34;c&#34;) .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+a b c 1 A B C D merge zip combineLatest switchLatest withLatestFrom  </p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-17 20:35:00 +0800 CST'>2022-02-17 20:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - Combination Operators" href="https://tientiensmile.github.io/posts/rxswift/rxswift_combination_operators/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>RxSwift - take、distinctUntilChanged
     </h2>
   </header>
@@ -200,23 +214,11 @@ let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subsc
   <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
   <a class="entry-link" aria-label="post link to RxSwift - Observable 可監聽序列" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observable/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>RxSwift - Observer 觀察者
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>觀察者是用來監聽序列，當收到事件作出響應。
-建立觀察者 對一個 Observable 進行 subscribe。事件發生時於後面的 onNext、onError、onCompleted作出響應。
-tap.subscribe(onNext: { [weak self] in self?.showAlert() }, onError: { error in print(&#34;發生錯誤： \(error.localizedDescription)&#34;) }, onCompleted: { print(&#34;完成任務&#34;) }) AnyObserver AnyObserver 可以用來描述任意一種觀察者。
-範例：印出網路請求結果
-URLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(onNext: { data in print(&#34;Data Task Success with count: \(data.count)&#34;) }, onError: { error in print(&#34;Data Task Error: \(error)&#34;) }) .disposed(by: disposeBag) 可以改寫為
-let observer: AnyObserver&lt;Data&gt; = AnyObserver { (event) in switch event { case .next(let data): print(&#34;Data Task Success with count: \(data....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Observer 觀察者" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observer/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://tientiensmile.github.io/categories/rxswift/page/2/">Next Page »</a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">
