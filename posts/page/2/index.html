@@ -159,19 +159,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>SwiftUI - ObservableObject
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>ObservableObject 和 @ObservedObject  ObservableObject 是一個 protocol，要求實現協議的類型為 class，有一個需要實作的屬性 objectWillChange。 當數據將要發生改變時，這個屬性用來向外進行「廣播」，它的訂閱者(一般是 View 相關的邏輯)在收到通知後，對 View 進行刷新。 創建遵從 ObservableObject 協議的類別後，實際在 View 裡使用需要將此物件宣告為 @ObservedObject。  範例：點擊按鈕擲骰子  使用 PassthroughSubject 中 send() 方法通知事件將要發生。 PassthroughSubject 於 Combine 框架中，將於後續介紹。
-  ContentView 中 model 為 reference type，使用 @ObservedObject 將它和 ContentView 關聯起來。當 model 中的屬性 diceState 將要改變，objectWillChange 就會發出事件，使得 body 被調用進行UI刷新。  struct ContentView: View { @ObservedObject private var model = DiceModel() var body: some View { CounterButton(diceState: $model.diceState) } } class DiceModel: ObservableObject { let objectWillChange = PassthroughSubject&lt;Void, Never&gt;() var diceState: DiceState = ....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-06 18:00:00 +0800 CST'>2022-02-06 18:00</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to SwiftUI - ObservableObject" href="https://tientiensmile.github.io/posts/swiftui/swiftui_observableobject/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>SwiftUI - 狀態(State)與綁定(Binding)
     </h2>
   </header>
@@ -231,10 +218,26 @@ let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subsc
   <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
   <a class="entry-link" aria-label="post link to RxSwift - Observable 可監聽序列" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observable/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>RxSwift - Observer 觀察者
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>觀察者是用來監聽序列，當收到事件作出響應。
+建立觀察者 對一個 Observable 進行 subscribe。事件發生時於後面的 onNext、onError、onCompleted作出響應。
+tap.subscribe(onNext: { [weak self] in self?.showAlert() }, onError: { error in print(&#34;發生錯誤： \(error.localizedDescription)&#34;) }, onCompleted: { print(&#34;完成任務&#34;) }) AnyObserver AnyObserver 可以用來描述任意一種觀察者。
+範例：印出網路請求結果
+URLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(onNext: { data in print(&#34;Data Task Success with count: \(data.count)&#34;) }, onError: { error in print(&#34;Data Task Error: \(error)&#34;) }) .disposed(by: disposeBag) 可以改寫為
+let observer: AnyObserver&lt;Data&gt; = AnyObserver { (event) in switch event { case .next(let data): print(&#34;Data Task Success with count: \(data....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - Observer 觀察者" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observer/"></a>
+</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://tientiensmile.github.io/posts/">« Prev Page</a>
-    <a class="next" href="https://tientiensmile.github.io/posts/page/3/">Next Page »</a>
   </nav>
 </footer>
     </main>
