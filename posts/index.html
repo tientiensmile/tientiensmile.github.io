@@ -159,28 +159,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>20220226
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>願意聽進去了再次回到診間
-之前跟惠怡醫師也建立了一定的信任跟默契為什麼會想要換醫師
-像你說的換醫師對對來說是一件辛苦的事情
-所有的事情都需要重新來過跟適應
-這是那段時間沒有換的主要原因
-惠怡醫師給了我一定的幫助跟支持陪我走過那一段狀態很不好的時間
-其實當時的我並不知道自己希望得到什麼樣的幫助
-只是覺得快要沒辦法正常生活跟工作而來尋求協助
-她能給予我的幫助有限，因為當時的我並不願意把自己打開
-不願意接受諮商，是因為還在一些事情剛發生的情緒裡，我只想逃走把自己關起來
-當我不願意把自己打開強迫自己去也只是在浪費資源</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-26 06:00:00 +0800 CST'>2022-02-26 06:00</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to 20220226" href="https://tientiensmile.github.io/posts/life/20220226/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>RxSwift - Combination Operators
     </h2>
   </header>
@@ -231,6 +209,19 @@ a b c 1 A B C D merge zip combineLatest switchLatest withLatestFrom  </p>
   </section>
   <footer class="entry-footer"><span title='2022-02-06 18:00:00 +0800 CST'>2022-02-06 18:00</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
   <a class="entry-link" aria-label="post link to SwiftUI - ObservableObject" href="https://tientiensmile.github.io/posts/swiftui/swiftui_observableobject/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>SwiftUI - 狀態(State)與綁定(Binding)
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>屬性包裝、投射屬性  由 @ 修飾的屬性稱為屬性包裝(Property Wrapper)。 @State、@Binding、@ObjectBinding、@EnvironmentObject都是 @propertyWrapper 修飾的 struct。 對一個由 @ 修飾的屬性，在它前面使用 $ 取得的值，被稱為投射屬性(Projection Property)。 並不是所有的 @ 屬性都提供 $ 的投射訪問方式。  @State  @State 修飾的屬性會被自動轉換為一對 setter 和 getter 對這個屬性進行賦值的操作，它的 body 會被再次調用，進行 View 的刷新。 但由於是 value type ，在不同物件傳遞時透過複製值，因此經過不同層級底層改變並無法更新頂層的值。 訪問 @State 修飾的屬性，所有調用觸發的都是 wrappedValue。 使用 $ 訪問屬性，取得的是 projectedValue ，為一個 Binding 類型的值。  SwiftUI 中 State 定義的關鍵部分
+@propertyWrapper public struct State&lt;Value&gt;: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding&lt;Value&gt; { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-06 14:15:00 +0800 CST'>2022-02-06 14:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to SwiftUI - 狀態(State)與綁定(Binding)" href="https://tientiensmile.github.io/posts/swiftui/swiftui_stateandbinding/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
