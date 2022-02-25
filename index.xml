@@ -9,7 +9,26 @@
       <link>https://tientiensmile.github.io/images/avator.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 25 Feb 2022 06:00:00 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Feb 2022 06:00:00 +0800</lastBuildDate><atom:link href="https://tientiensmile.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20220226</title>
+      <link>https://tientiensmile.github.io/posts/life/20220226/</link>
+      <pubDate>Sat, 26 Feb 2022 06:00:00 +0800</pubDate>
+      
+      <guid>https://tientiensmile.github.io/posts/life/20220226/</guid>
+      <description>願意聽進去了再次回到診間
+之前跟惠怡醫師也建立了一定的信任跟默契為什麼會想要換醫師
+像你說的換醫師對對來說是一件辛苦的事情
+所有的事情都需要重新來過跟適應
+這也是那段時間沒有換的主要原因
+惠怡醫師給了我一定的幫助跟支持陪我走過那一段狀態很不好的時間
+其實當時的我並不知道自己希望得到什麼樣的幫助
+只是覺得快要沒辦法正常生活跟工作而來尋求協助
+她能給予我的幫助有限，因為當時的我並不願意髮自己打開
+不願意接受諮商，是因為還在一些事情剛發生的情緒裡，我只想逃走把自己關起來
+當我不願意把自己打開強迫自己去也只是在浪費資源</description>
+    </item>
+    
     <item>
       <title>20220225</title>
       <link>https://tientiensmile.github.io/posts/life/20220225/</link>
@@ -41,36 +60,6 @@
       <description>Combination Operators  將多個 Observable 組合成單個 Observable 運算符。  startWith  開始從某個 Observable 發出元素之前發出指定的元素序列。   每個連續的 startWith 元素都將在前一個 startWith 元素之前添加。
  let disposeBag = DisposeBag() Observable.of(&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;, &amp;#34;D&amp;#34;) .startWith(&amp;#34;1&amp;#34;) .startWith(&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;) .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
 a b c 1 A B C D merge zip combineLatest switchLatest withLatestFrom  </description>
-    </item>
-    
-    <item>
-      <title>20220216</title>
-      <link>https://tientiensmile.github.io/posts/life/20220216/</link>
-      <pubDate>Wed, 16 Feb 2022 20:00:00 +0800</pubDate>
-      
-      <guid>https://tientiensmile.github.io/posts/life/20220216/</guid>
-      <description>對我來說其實用寫的比用說的容易一些 第一次見面前原本有想寫一些東西 但還是想用說的試試看
-結果很多東西還是說不清楚
-上次提到出現狀況是很多因素加總而成的 跟家人不太親近是一個原因
-更直接關係的應該是1年半前結束了一段3年的感情
-壓死駱駝的最後一根稻草是工作上原本一起合作比我資深的夥伴去開發新產品 變成我帶一個新人一起扛下這支產品
-當時的我其實也才轉職寫程式半年左右
-變成我主導後感覺得自己能力不足
-有很強烈的無力挫敗感
-大概是從國中開始每隔2-3年情緒會開始變得低落
-那時候總是推給課業壓力大
-其實是因為一直很孤單吧
-不太會跟家人分享自己的生活
-個性比較內斂害羞跟所有人都保持了一定的距離
-所有事幾乎都悶在心裡
-每次升學換了一個新環境一開始感覺會好一些
-但過一陣子後又會再來一次
-大三有一段時間變得比較嚴重
-很難去上課 很不願意跟人溝通
-不知道在害怕什麼但講話或是坐在教室裡都會發抖
-那是第一次意識到自己有一些行為開始無法控制 那段時間每週會去學校的諮商中心跟老師約談 好起來的原因是有慢慢重新回到熟悉的田徑場參與訓練 研究所申請到台北的研究所離開了當時的環境
-最久一段時間沒有經歷這種低潮是進到一段感情中 中間她陪我經歷父母離婚、找工作、轉職等等 有她在感覺讓我變得勇敢一些 如果那些時候沒有她
-我不會選擇轉職 可能還是待在原本的工作然後像現在的狀態一樣</description>
     </item>
     
     <item>
