@@ -159,72 +159,92 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Redux架構
+    <h2>20220215
     </h2>
   </header>
   <section class="entry-content">
-    <p> 適合 SwiftUI 的架構
- Redux 基本概念  App 為一個狀態機，狀態決定用戶介面。 這些狀態(State)都保存在一個 Store 物件中。 View 不能直接操作 State，只能通過發送 Action 的方式間接改變儲存在 Store 中的 State 。 Reducer 接受原有的 State 和發送過來的 Action，生成新的 State。 用新的 State 替換 Store 中原有的狀態，並用新的狀態來驅動更新介面。  Store 應用程式只有一個 Store，用來保存整個應用程式的 State。 可以透過 store.getState() 取得應用程式當前狀態，但不能直接修改。
-Action Action 為一個普通的物件，用來描述應用程式發生的事情，把數據傳遞給 Store 的唯一途徑。
-Reducer Reducer.reduce(state: action:)是純函數，具體處理狀態的邏輯。
- 純函數：返回值只由調用時的參數決定，不依賴於任何系統狀態，也不改變其作用域之外的變量狀態的函數。
- struct Reducer { static func reduce(state: State, action: Action) -&gt; State { return state.apply(item: action) } } </p>
+    <p>1~10，如果5分是正常現在在幾分呢? 3,4分
+我沒說出口的謝謝你們，謝謝你們的聲音陪我度過很多日子
+說不清楚準確是什麼，但那些東西就慢慢聽進去了
+有時間再把那些觸動紀錄下來
+我說不期待什麼是因為我知道你們能做的有限
+尤其我又不太會把自己說清楚
+但我可以確定的是我願意在這裡把外皮卸掉
+去看見裡面的自己發生了什麼事情
+然後希望長出一點支撐自己的力量。
+謝謝你們耐心的聽我說話
+我的沉默是因為我不知道該如何回答
+有時候是因為顧慮該不該說而卡住
+有時候是沒想過有這種可能當下沒有答案
+我的反應比較遲鈍
+回到一個人的狀態才會想到當時想回應的東西
+如果有下一次再跟你們分享。
+課前功課
+換一位醫師好好吃藥
+先讓作息正常頭腦才能好好運作。
+想問的
+如果那個行為是建立在信任之上的該怎麼界定？</p>
   </section>
-  <footer class="entry-footer"><span title='2022-02-06 09:20:00 +0800 CST'>2022-02-06 09:20</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to Redux架構" href="https://tientiensmile.github.io/posts/redux_intro/"></a>
+  <footer class="entry-footer"><span title='2022-02-15 21:35:00 +0800 CST'>2022-02-15 21:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to 20220215" href="https://tientiensmile.github.io/posts/life/20220215/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>RxSwift - Subjects
+    <h2>RxSwift - take、distinctUntilChanged
     </h2>
   </header>
   <section class="entry-content">
-    <p>Subjects 同時是 Observable 也是 Observer
-Publish Subject 訂閱之後才會收到發出的事件。
-let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.dispose() /// Issue 3 在dispose之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) let subject = PublishSubject&lt;String&gt;() /// Issue 1 在訂閱之前收不到 subject.onNext(&#34;Issue 1&#34;) subject.subscribe { event in print(event) } subject.onNext(&#34;Issue 2&#34;) subject.onCompleted() /// Issue 3 在completed之後收不到 subject.onNext(&#34;Issue 3&#34;) /// 印出結果 next(Issue 2) completed Behavior Subject 需給定初始值，因爲訂閱它時，會得到初始值或訂閱前最後一個值。...</p>
+    <p>take  從 Observable 中發出頭 n 個元素，忽略後面的元素直到序列結束。   let disposeBag = DisposeBag() Observable.of(&#34;🐱&#34;, &#34;🐰&#34;, &#34;🐶&#34;, &#34;🐸&#34;, &#34;🐷&#34;, &#34;🐵&#34;) .take(3) .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐰 🐶 distinctUntilChanged  阻止 Observable 發出相同的元素。如果後一個元素和前一個元素相同，將不會發出來，若後一個元素和前一個元素不同才會被發出來。   let disposeBag = DisposeBag() Observable.of(&#34;🐱&#34;, &#34;🐷&#34;, &#34;🐱&#34;, &#34;🐱&#34;, &#34;🐱&#34;, &#34;🐵&#34;, &#34;🐱&#34;) .distinctUntilChanged() .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐷 🐱 🐵 🐱 </p>
   </section>
-  <footer class="entry-footer"><span title='2022-02-05 12:15:00 +0800 CST'>2022-02-05 12:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Subjects" href="https://tientiensmile.github.io/posts/rxswift/rxswift_subjects/"></a>
+  <footer class="entry-footer"><span title='2022-02-14 17:35:00 +0800 CST'>2022-02-14 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - take、distinctUntilChanged" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators_2/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>RxSwift - Observable 可監聽序列
+    <h2>RxSwift - combineLatest、skip、do
     </h2>
   </header>
   <section class="entry-content">
-    <p>每一個 Observable 就只是一個序列(Sequence)而已。
-subscribe 一個 observable，以訂閱UISlider為例，當滑動UISlider時值改變就會通知訂閱(subscride)的人。
-建立Observables 建立一個只有一個 element，值為1的observable
-let observable = Observable.just(1) 建立一個三個element，型別為int的observable
-let observable2 = Observable.of(1,2,3) 建立一個只有一個element，為int陣列的observable
-let observable3 = Observable.of([1,2,3]) 用from遍歷陣列中每一個element，相當於observable2
-let observable4 = Observable.from([1,2,3]) 建立Subscriptions observable4.subscribe { event in print(event) } /// 印出結果 next(1) next(2) next(3) completed /// 取得Observable中的值 observable4.subscribe { event in if let element = event.element { print(element) } } /// 較簡易取得element的方法 observable4.subscribe(onNext: { element in print(element) }) /// 印出結果 1 2 3 observable3.subscribe { event in print(event) } /// 印出結果 next([1, 2, 3]) completed 取得Observable中的值...</p>
+    <p>combineLatest  將多個 Observables 中最新的元素透過一個函數組合起來，然後將結果發出來。  let disposeBag = DisposeBag() let first = PublishSubject&lt;String&gt;() let second = PublishSubject&lt;String&gt;() Observable.combineLatest(first, second) { $0 &#43; $1 } .dubscribe(onNext: { print($0) }) .disposed(by: disposeBag) first.onNext(&#34;1&#34;) second.onNext(&#34;A&#34;) first.onNext(&#34;2&#34;) second.onNext(&#34;B&#34;) second.onNext(&#34;C&#34;) second.onNext(&#34;D&#34;) first.onNext(&#34;3&#34;) first.onNext(&#34;4&#34;) 印出結果
+1A 2A 2B 2C 2D 3D 4D skip  跳過 Observable 中頭 n 個元素  do  使用 do 來監聽事件的生命週期，它會在每一次事件發送前被調用。 它和 subscribe 一樣，可以通過不同的閉包回調不同類型的事件。 如：do(onNext: ) 在 subscribe(onNext:) 前，do(onCompleted:) 在 subscribe(onCompleted:) 前調用。  let observable = Observable....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Observable 可監聽序列" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observable/"></a>
+  <footer class="entry-footer"><span title='2022-02-13 17:35:00 +0800 CST'>2022-02-13 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - combineLatest、skip、do" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators_1/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>RxSwift - Observer 觀察者
+    <h2>SwiftUI - ObservableObject
     </h2>
   </header>
   <section class="entry-content">
-    <p>觀察者是用來監聽序列，當收到事件作出響應。
-建立觀察者 對一個 Observable 進行 subscribe。事件發生時於後面的 onNext、onError、onCompleted作出響應。
-tap.subscribe(onNext: { [weak self] in self?.showAlert() }, onError: { error in print(&#34;發生錯誤： \(error.localizedDescription)&#34;) }, onCompleted: { print(&#34;完成任務&#34;) }) AnyObserver AnyObserver 可以用來描述任意一種觀察者。
-範例：印出網路請求結果
-URLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(onNext: { data in print(&#34;Data Task Success with count: \(data.count)&#34;) }, onError: { error in print(&#34;Data Task Error: \(error)&#34;) }) .disposed(by: disposeBag) 可以改寫為
-let observer: AnyObserver&lt;Data&gt; = AnyObserver { (event) in switch event { case .next(let data): print(&#34;Data Task Success with count: \(data....</p>
+    <p>ObservableObject 和 @ObservedObject  ObservableObject 是一個 protocol，要求實現協議的類型為 class，有一個需要實作的屬性 objectWillChange。 當數據將要發生改變時，這個屬性用來向外進行「廣播」，它的訂閱者(一般是 View 相關的邏輯)在收到通知後，對 View 進行刷新。 創建遵從 ObservableObject 協議的類別後，實際在 View 裡使用需要將此物件宣告為 @ObservedObject。  範例：點擊按鈕擲骰子  使用 PassthroughSubject 中 send() 方法通知事件將要發生。 PassthroughSubject 於 Combine 框架中，將於後續介紹。
+  ContentView 中 model 為 reference type，使用 @ObservedObject 將它和 ContentView 關聯起來。當 model 中的屬性 diceState 將要改變，objectWillChange 就會發出事件，使得 body 被調用進行UI刷新。  struct ContentView: View { @ObservedObject private var model = DiceModel() var body: some View { CounterButton(diceState: $model.diceState) } } class DiceModel: ObservableObject { let objectWillChange = PassthroughSubject&lt;Void, Never&gt;() var diceState: DiceState = ....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-02-05 10:15:00 +0800 CST'>2022-02-05 10:15</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to RxSwift - Observer 觀察者" href="https://tientiensmile.github.io/posts/rxswift/rxswift_observer/"></a>
+  <footer class="entry-footer"><span title='2022-02-06 18:00:00 +0800 CST'>2022-02-06 18:00</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to SwiftUI - ObservableObject" href="https://tientiensmile.github.io/posts/swiftui/swiftui_observableobject/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>SwiftUI - 狀態(State)與綁定(Binding)
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>屬性包裝、投射屬性  由 @ 修飾的屬性稱為屬性包裝(Property Wrapper)。 @State、@Binding、@ObjectBinding、@EnvironmentObject都是 @propertyWrapper 修飾的 struct。 對一個由 @ 修飾的屬性，在它前面使用 $ 取得的值，被稱為投射屬性(Projection Property)。 並不是所有的 @ 屬性都提供 $ 的投射訪問方式。  @State  @State 修飾的屬性會被自動轉換為一對 setter 和 getter 對這個屬性進行賦值的操作，它的 body 會被再次調用，進行 View 的刷新。 但由於是 value type ，在不同物件傳遞時透過複製值，因此經過不同層級底層改變並無法更新頂層的值。 訪問 @State 修飾的屬性，所有調用觸發的都是 wrappedValue。 使用 $ 訪問屬性，取得的是 projectedValue ，為一個 Binding 類型的值。  SwiftUI 中 State 定義的關鍵部分
+@propertyWrapper public struct State&lt;Value&gt;: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding&lt;Value&gt; { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self....</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-06 14:15:00 +0800 CST'>2022-02-06 14:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to SwiftUI - 狀態(State)與綁定(Binding)" href="https://tientiensmile.github.io/posts/swiftui/swiftui_stateandbinding/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://tientiensmile.github.io/posts/">« Prev Page</a>
+    <a class="next" href="https://tientiensmile.github.io/posts/page/3/">Next Page »</a>
   </nav>
 </footer>
     </main>
