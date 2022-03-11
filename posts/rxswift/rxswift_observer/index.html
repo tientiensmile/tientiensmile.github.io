@@ -116,8 +116,8 @@ let observer: AnyObserver&lt;Data&gt; = AnyObserver { (event) in switch event { 
   "keywords": [
     "rxSwift"
   ],
-  "articleBody": "觀察者是用來監聽序列，當收到事件作出響應。\n建立觀察者 對一個 Observable 進行 subscribe。事件發生時於後面的 onNext、onError、onCompleted作出響應。\ntap.subscribe(onNext: { [weak self] in self?.showAlert() }, onError: { error in print(\"發生錯誤： \\(error.localizedDescription)\") }, onCompleted: { print(\"完成任務\") }) AnyObserver AnyObserver 可以用來描述任意一種觀察者。\n範例：印出網路請求結果\nURLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(onNext: { data in print(\"Data Task Success with count: \\(data.count)\") }, onError: { error in print(\"Data Task Error: \\(error)\") }) .disposed(by: disposeBag) 可以改寫為\nlet observer: AnyObserver = AnyObserver { (event) in switch event { case .next(let data): print(\"Data Task Success with count: \\(data.count)\") case .error(let error): print(\"Data Task Error: \\(error)\") default: break } } URLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(observer) .disposed(by: disposeBag) Binder  Binder 不會處理錯誤事件 確保綁定都是在給定的 Scheduler 上執行 (默認為 MainScheduler)  範例： 这个观察者是一个 UI 观察者，所以它在响应事件时，只会处理 next 事件，并且更新 UI 的操作需要在主线程上执行。\nlet observer: AnyObserver = AnyObserver { [weak self] (event) in switch event { case .next(let isHidden): self?.usernameValidOutlet.isHidden = isHidden default: break } } usernameValid .bind(to: observer) .disposed(by: disposeBag) ",
-  "wordCount" : "136",
+  "articleBody": "觀察者是用來監聽序列，當收到事件作出響應。\n建立觀察者 對一個 Observable 進行 subscribe。事件發生時於後面的 onNext、onError、onCompleted作出響應。\ntap.subscribe(onNext: { [weak self] in self?.showAlert() }, onError: { error in print(\"發生錯誤： \\(error.localizedDescription)\") }, onCompleted: { print(\"完成任務\") }) AnyObserver AnyObserver 可以用來描述任意一種觀察者。\n範例：印出網路請求結果\nURLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(onNext: { data in print(\"Data Task Success with count: \\(data.count)\") }, onError: { error in print(\"Data Task Error: \\(error)\") }) .disposed(by: disposeBag) 可以改寫為\nlet observer: AnyObserver = AnyObserver { (event) in switch event { case .next(let data): print(\"Data Task Success with count: \\(data.count)\") case .error(let error): print(\"Data Task Error: \\(error)\") default: break } } URLSession.shared.rx.data(request: URLRequest(url: url)) .subscribe(observer) .disposed(by: disposeBag) Binder  Binder 不會處理錯誤事件 確保綁定都是在給定的 Scheduler 上執行 (默認為 MainScheduler)  範例： 這是一個UI觀察者，在響應事件時只會處理 next 事件，且需要在主執行緒更新 UI 的操作。\nlet observer: AnyObserver = AnyObserver { [weak self] (event) in switch event { case .next(let isHidden): self?.usernameValidOutlet.isHidden = isHidden default: break } } usernameValid .bind(to: observer) .disposed(by: disposeBag) ",
+  "wordCount" : "134",
   "inLanguage": "en",
   "datePublished": "2022-02-05T10:15:00+08:00",
   "dateModified": "2022-02-05T10:15:00+08:00",
@@ -280,7 +280,7 @@ URLSession.shared.rx.data(request: URLRequest(url: url))
 <li>確保綁定都是在給定的 <code>Scheduler</code> 上執行 (默認為 MainScheduler)</li>
 </ul>
 <p>範例：
-这个观察者是一个 UI 观察者，所以它在响应事件时，只会处理 next 事件，并且更新 UI 的操作需要在主线程上执行。</p>
+這是一個UI觀察者，在響應事件時只會處理 <code>next</code> 事件，且需要在主執行緒更新 UI 的操作。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> observer: AnyObserver&lt;Bool&gt; = AnyObserver { [<span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">self</span>] (event) <span style="color:#66d9ef">in</span>
     <span style="color:#66d9ef">switch</span> event {
     <span style="color:#66d9ef">case</span> .next(<span style="color:#66d9ef">let</span> isHidden):
