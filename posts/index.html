@@ -159,120 +159,69 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>20220303
+    <h2>RxSwift - Combination Operators
     </h2>
   </header>
   <section class="entry-content">
-    <p>CIA通達力初階班 第二堂課 天韻：
-謝謝你這麼快速完成作業，讓我們有更多時間，
-可以聆聽你的聲音，給予你回饋。
-首先要先肯定你，在這段錄音中，
-你的音質是乾淨的。
-只是你因為姿勢（有一些駝背）和呼吸習慣，
-讓你說出去的話，尾音會散，給人一種飄飄的感覺，
-少了一份篤定和落地感。
-我分析了你第一分鐘的呼吸點： 0:10、0:14、0:17、0:21、0:27、0:29、0:33、0:40、0:47、0:55、0:59、1:08、 你的呼吸節奏不太穩定，有時兩三秒換氣，有時快十秒才換，
-因此容易有憋氣的狀況，氣不夠的狀態，就容易影響到聲音的清晰度，與思考的完整度。
-你不需要變成一個活潑的人，你可以有你說話的速度，內容也不一定要多，
-但可以透過呼吸，讓自己更穩定，把腦中的想法，穩穩地說出來，
-其實你說的內容是有趣，也會讓人好奇的。
-至於你最後提到最近很容易想睡，就身體的角度， 這是好事，代表她在反應你需要休息的訊息給你， 而不再像過去壓抑，用意志去撐，最後承受不住而垮掉。
-多照顧自己身體，聆聽他給你的訊息，你有多在乎他， 他會在生活中給你不同的回應。
-持續練習喔！
-嘉玲老師</p>
+    <p>Combination Operators  將多個 Observable 組合成單個 Observable 運算符。  startWith  開始從某個 Observable 發出元素之前發出指定的元素序列。   每個連續的 startWith 元素都將在前一個 startWith 元素之前添加。
+ let disposeBag = DisposeBag() Observable.of(&#34;A&#34;, &#34;B&#34;, &#34;C&#34;, &#34;D&#34;) .startWith(&#34;1&#34;) .startWith(&#34;a&#34;, &#34;b&#34;, &#34;c&#34;) .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+a b c 1 A B C D merge zip combineLatest switchLatest withLatestFrom  </p>
   </section>
-  <footer class="entry-footer"><span title='2022-03-11 16:10:00 +0800 CST'>2022-03-11 16:10</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to 20220303" href="https://tientiensmile.github.io/posts/life/20220311/"></a>
+  <footer class="entry-footer"><span title='2022-02-17 20:35:00 +0800 CST'>2022-02-17 20:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - Combination Operators" href="https://tientiensmile.github.io/posts/rxswift/rxswift_combination_operators/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>20220303
+    <h2>RxSwift - take、distinctUntilChanged
     </h2>
   </header>
   <section class="entry-content">
-    <p>CIA通達力初階班 第二堂課 練習內容(1)： 請與夥伴分享你《最喜歡聽他說話的一個人》，他何以如此吸引你？令你印象最深刻的地方？
-分享時間：5分鐘(請錄音) 搭配影音教材「謄稿機使用說明」，下載並安裝軟體，將語音檔打成Word文字檔，張貼如下。
-逐字稿內容 我：我喜歡聽一個人講話 他是我的同事 也是我的好朋友，就是我是工程師 軟體工程師，然後我們是一起進現在這間公司一起培訓進來的。然後我喜歡聽他講話的原因是因為我是一個很安靜的人，然後他比較活潑外向，就是有他在的地方就會很歡樂、吵鬧那種。所以我就會覺得在他身邊會滿有安全感的，然後…恩…就是我常會很認真的在講某一件事情，但是他就會比較突然天外飛來一句話，就是打破那個很認真或很嚴肅的那個環境，所以就會覺得跟他講話很輕鬆，就比較自在這樣。…大概是這樣，沒了(笑)
-淅盈：你為什麼會覺得有安全感？他在的時候 我：ㄜ… 因為我不太會需要講話，就我只需要聽就好了，然後通常比較輕鬆的環境，我會比較自然的，就是在我想 頭腦裡面有想表達的東西就會比較自然的說出來。但如果是一個比較大家都很安靜的環境，我會有壓迫感，我就不會那麼自然的想要表達。 淅盈：喔~所以你滿害怕安靜的環境的？ 我：恩… 就是…也沒有害怕，就是 就不會特別想要說話，就大部分的時間是沉默的，恩，就沒有什麼想要表達的欲望。 淅盈：喔~
-我：但是如果跟比較…恩..外向的人相處的話，他們可能會刺激我 有時候也會釋放一點自己想要表達的東西，恩。(沉默…笑)
-淅盈：所以跟他在一起的時候你反而會比較 說比較多話嗎？可是你剛剛又說你跟他相處的時候你也不用講話？
-我：ㄜ..如果是單獨兩個人相處的話，我就會比較願意的去分享我自己的生活，或著是平常工作的事情。但如果是在團體裡的話就比較不會，恩。 淅盈：所以你最想要學他 你會想跟他一樣的講話方式嗎？ 我：不會，因為我知道我就不是那種個性的人，但我會希望…恩… 有他比較樂觀的那些…恩…奇妙的想法(笑)，就是沒有那麼嚴肅，沒有那麼 不會對每件事情都太過認真，恩 就會有不同的角度去看吧！恩。 淅盈：他會很吵嗎？講話的時候 我：(笑)如果有比他吵的人就不會，但是還好。他會…恩…怕 如果都沒有人吵的話，他就會當那個活潑的人。對。但他其實不會想要當那個，如果可以的話。
-淅盈：喔~ 多講一點
-我：(笑)我覺得夠了
-淅盈：還沒到，還有30秒(笑) 。他是男生還是女生？ 我：恩 女生。可以了，謝謝！
-練習內容(2)： 相信打完逐字稿後，你已經很熟悉自己的聲音。
-請先分析自己說話的節奏，屬於 □快 □中 ■慢。
-承上題，為何你會選這個答案？抽離自己，你覺得自己的聲音給別人什麼感覺？這個感覺和你希望在別人心中創造的形象，一致嗎？ 因為我在說話的過程也在想要用什麼詞彙。我覺得像認真回答問題的學生。會希望在別人心中不會因為我的話少而需要一直push我講更多話。
-其他想回饋的 第二堂課，可能是比較早進教室的關係，沒有第一堂課進去都是人的壓迫感。平常公司8:30上班，我都7點多就到公司當第一個開燈的人。去其他環境也是，我都喜歡在沒有人或人很少的時候先待在裡面，之後不管那個空間有多少人，我可以感覺到自己緊繃的程度跟一進去就這麼多人，是不太一樣，能夠比較放鬆的。
-這堂課精神狀態有比較好一些，看見自己跟被點到的當下還是有點害怕不知所措一直捏自己的手。心中大概知道自己呈現給別人的模樣，但真的看見那就是當下的自己，感覺有跟自己更靠近了一點。
-特別感謝敏君給了我他的呼吸承諾卡，沒想到有人會給我，我也把自己的承諾卡給他了。也想謝謝當天坐在我旁邊的淅盈，當我的夥伴應該不輕鬆。
-中間嘉玲老師那一part，我真的是標準的工程師思維，思路很窄沒有什麼可以變換的詞彙，周圍霹哩啪拉冒出很多形容詞，我還在想這個詞到底是哪一種感官，我的感官大部分時間應該都是關閉的吧！品嚐葡萄乾的過程我也才發現，我是喜歡吃葡萄乾的，但我從來沒有好好的聞過它，其實聞起來並不是我那麼喜歡的味道。
-禮拜二提到第一次中午午休在公司睡著了，從那天開始感覺身體特別特別累，以前從來不會在工作寫 程式的時候打嗑睡，身體累但一直是ㄍㄧㄥ的狀態不會有睡意，這幾天得硬撐著才沒讓自己睡著。這是上次嘉玲老師提到因為練習呼吸把警報器打開的原因嗎？有一種像以前碰到大考，考前都沒事，直到考完壓力卸下來就開始感冒生病的感覺。我的身體怎麼了？好想放個長假。</p>
+    <p>take  從 Observable 中發出頭 n 個元素，忽略後面的元素直到序列結束。   let disposeBag = DisposeBag() Observable.of(&#34;🐱&#34;, &#34;🐰&#34;, &#34;🐶&#34;, &#34;🐸&#34;, &#34;🐷&#34;, &#34;🐵&#34;) .take(3) .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐰 🐶 distinctUntilChanged  阻止 Observable 發出相同的元素。如果後一個元素和前一個元素相同，將不會發出來，若後一個元素和前一個元素不同才會被發出來。   let disposeBag = DisposeBag() Observable.of(&#34;🐱&#34;, &#34;🐷&#34;, &#34;🐱&#34;, &#34;🐱&#34;, &#34;🐱&#34;, &#34;🐵&#34;, &#34;🐱&#34;) .distinctUntilChanged() .subscribe(onNext: { print($0) }) .disposed(by: disposeBag) 印出結果
+🐱 🐷 🐱 🐵 🐱 </p>
   </section>
-  <footer class="entry-footer"><span title='2022-03-10 21:00:00 +0800 CST'>2022-03-10 21:00</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to 20220303" href="https://tientiensmile.github.io/posts/life/20220310/"></a>
+  <footer class="entry-footer"><span title='2022-02-14 17:35:00 +0800 CST'>2022-02-14 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - take、distinctUntilChanged" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators_2/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>20220303
+    <h2>RxSwift - combineLatest、skip、do
     </h2>
   </header>
   <section class="entry-content">
-    <p>CIA通達力初階班 第一堂課 練習內容(1)： 請搭配影音教材「腹式呼吸指導語」，早晚各做一次深層腹式呼吸法，每次約5-10分鐘。
-檢核表 (練習後，請給自己一個大大的勾，跟自己說：你是一個認真的人！)
-    第一天(三) 第二天(四) 第三天(五) 第四天(六) 第五天(日) 第六天(一) 第七天(二)     早  ✓😴 ✓😴 ✓🫁 ✓🫁 ✓🫁 ✓😪   中 ✓😌 ✓😌 ✓😌 ✓🫁 ✓🫁 ✓😪 ✓😪   晚 ✓😴 ✓😴 ✗😴 ✓🫁 ✓🫁 😴✓     😴：練習一半睡著了 😌：完整練習完覺得放鬆 🫁：認真練習 😴：小學堂聽一半睡著沒有做到練習 🫁：為了想聽小學堂趕快認真練習 ✓😪：練習完好睏 😴✓：回到家馬上睡著，半夜起來練習了一次，再度睡著
-練習內容(2)： 生活中，與人互動時，有意識的用腹式呼吸溝通，透過呼吸調整說話的情緒。 實踐心得：
-請觀察自己將腹式呼吸融入生活後，這一週在工作、溝通上的變化，用文字描述出你的體會，為自己留下美好的改變軌跡。
-心得 第一堂課程前的午休收到了課前信，我就把檔案及音檔下載下來，那一天午休過後剛好要跟部門主管面談(每一季考核過後的例行項目)，跟人的面談都會讓我非常焦慮。當我打開音檔跟著凱宇老師的引導把注意力放在呼吸後，明顯的感覺到自己當下放鬆下來，雖然聽完後沒多久還是馬上回到緊張的狀態，不過那是我第一次發現原來是可以透過這種方式中斷焦慮的狀態，之前都是透過工作寫程式暫時轉移注意力，緊繃到的事情結束。
-課前面談後我有聽從建議換了一位醫師重新開始看診，開始吃藥後大約能睡到6個小時，但近一週工作上有一些讓我焦慮的事情，儘管有吃藥但頂多4,5小時就會醒來。醒來時間大約都是3點多。星期四、五開始了呼吸練習，醒來後沒有馬上爬起來，而是打開音檔跟著吸、吐，幾個循環之後好像就失去意識，過一會兒醒來發現播完了，因為覺得沒有聽完我按下了重播，結果跟上一輪一樣的狀態，等我再次清醒發現有我多休息了一個多小時！不是很深但比起平常3點多醒來就爬起來工作，感覺多少有幫助我的身心得到多一點休息。
-晚上睡前也有播著音檔想要跟著做，但應該是吃藥的關係，好像聽著前言沒多久就昏迷了。(不確定這樣是否有算是完成了早、晚的作業😆)
-中午有1.5小時的午休時間，有時候真的很累但是精神一直處於緊繃的狀態，所以沒什麼午休的習慣，通常都會繼續工作，頂多在公司附近晃晃而已。課後我也開始在中午抽一小段時間好好跟著音檔練習呼吸，幾次試驗下來，平日只有這個時間可以完整做完。加入這一段練習之後我感覺一條繃緊的繩子，好像有鬆一點的機會了。有一天練習完後好希望旁邊就有一張床，當時應該可以馬上入睡吧！教練課嘉玲老師說是因為呼吸讓我把身體的警報器打開了，他到底被我關掉多久了呢？對我的身體感到抱歉，好像大學畢業離開田徑隊後就沒有再好好觀照自己的身體了。
-禮拜五回診看醫生，原本吃煩多閃跟立舒錠各兩顆(上次是照著去年後期比較穩定在吃的藥繼續開)，醫師瞭解了一下過去的情況後覺得煩多閃可能對我的幫助有限，睡眠也幫我改成長效一點的，所以這一週改成安保抗憂錠跟克癲平。感覺自己像在做實驗，讓我更有意識的覺察自己身體的變化。謝謝陪著我發現這些一點點變化的你們。
-週末都有在比較清醒的狀態完成練習，可能是沒有特別的焦慮來源，沒有什麼發現。...</p>
+    <p>combineLatest  將多個 Observables 中最新的元素透過一個函數組合起來，然後將結果發出來。  let disposeBag = DisposeBag() let first = PublishSubject&lt;String&gt;() let second = PublishSubject&lt;String&gt;() Observable.combineLatest(first, second) { $0 &#43; $1 } .dubscribe(onNext: { print($0) }) .disposed(by: disposeBag) first.onNext(&#34;1&#34;) second.onNext(&#34;A&#34;) first.onNext(&#34;2&#34;) second.onNext(&#34;B&#34;) second.onNext(&#34;C&#34;) second.onNext(&#34;D&#34;) first.onNext(&#34;3&#34;) first.onNext(&#34;4&#34;) 印出結果
+1A 2A 2B 2C 2D 3D 4D skip  跳過 Observable 中頭 n 個元素  do  使用 do 來監聽事件的生命週期，它會在每一次事件發送前被調用。 它和 subscribe 一樣，可以通過不同的閉包回調不同類型的事件。 如：do(onNext: ) 在 subscribe(onNext:) 前，do(onCompleted:) 在 subscribe(onCompleted:) 前調用。  let observable = Observable....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-03-06 08:25:00 +0800 CST'>2022-03-06 08:25</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to 20220303" href="https://tientiensmile.github.io/posts/life/20220306/"></a>
+  <footer class="entry-footer"><span title='2022-02-13 17:35:00 +0800 CST'>2022-02-13 17:35</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to RxSwift - combineLatest、skip、do" href="https://tientiensmile.github.io/posts/rxswift/rxswift_operators_1/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>20220303
+    <h2>SwiftUI - ObservableObject
     </h2>
   </header>
   <section class="entry-content">
-    <p>張昀醫師：
-上次你問我平常一直都這麼累嗎？
-上班的狀態會好一點，不會特別活潑有活力，大概就是平靜 因為都是跟工作有關，找問題解決問題，公事公辦的狀態
-好像進到公司就進入到繃緊的狀態，感覺每個神經都在 stand by
-如果有會議或是其他需要與人互動，就會消耗更多的能量
-要回到一個人的時候才能真的放鬆下來
-最近早、中、晚都會練習腹式呼吸， 中午練習當下會有放鬆的感覺， 有幾次好希望旁邊就是一張床，應該可以馬上睡著 諮商師說因為我平常都把身體的警報器關起來了
-練習呼吸讓我把警報器打開 會不會是這樣讓我這幾天覺得身體好累好累
-寫程式從來不會打瞌睡的我開始會打瞌睡 這禮拜有一天真的在午休時間睡著了 這是進公司第一次，平常都繼續工作頂多出去走走 有幾天7點多回到家整理一下就躺平睡著(有一天忘記吃藥直接睡著) 中間會醒來2,3次看個時間然後繼續睡到隔天早上 我的身體到底怎麼了？好想放個長假。
-我在這裡需要表顯出在公司的狀態嗎？</p>
+    <p>ObservableObject 和 @ObservedObject  ObservableObject 是一個 protocol，要求實現協議的類型為 class，有一個需要實作的屬性 objectWillChange。 當數據將要發生改變時，這個屬性用來向外進行「廣播」，它的訂閱者(一般是 View 相關的邏輯)在收到通知後，對 View 進行刷新。 創建遵從 ObservableObject 協議的類別後，實際在 View 裡使用需要將此物件宣告為 @ObservedObject。  範例：點擊按鈕擲骰子  使用 PassthroughSubject 中 send() 方法通知事件將要發生。 PassthroughSubject 於 Combine 框架中，將於後續介紹。
+  ContentView 中 model 為 reference type，使用 @ObservedObject 將它和 ContentView 關聯起來。當 model 中的屬性 diceState 將要改變，objectWillChange 就會發出事件，使得 body 被調用進行UI刷新。  struct ContentView: View { @ObservedObject private var model = DiceModel() var body: some View { CounterButton(diceState: $model.diceState) } } class DiceModel: ObservableObject { let objectWillChange = PassthroughSubject&lt;Void, Never&gt;() var diceState: DiceState = ....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-03-05 08:00:00 +0800 CST'>2022-03-05 08:00</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to 20220303" href="https://tientiensmile.github.io/posts/life/20220305/"></a>
+  <footer class="entry-footer"><span title='2022-02-06 18:00:00 +0800 CST'>2022-02-06 18:00</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to SwiftUI - ObservableObject" href="https://tientiensmile.github.io/posts/swiftui/swiftui_observableobject/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>20220303
+    <h2>SwiftUI - 狀態(State)與綁定(Binding)
     </h2>
   </header>
   <section class="entry-content">
-    <p>CIA通達力初階班 第一堂課 天韻：
-很開心你重新開啟跟自己的連結， 無論是身體的，或是想法上的。 你是一個很細膩的人，很多事情都想要做到「好」，
-因此花了很多力氣完成許多外界對你的期待或任務，
-因而沒有力氣對自己「好」。
-練習呼吸是一個開始，每一次覺得緊繃、卡住時， 就讓呼吸陪你，讓你知道無論如何，你都還有自己、呼吸在，你就在。
-持續練習喔
-嘉玲老師</p>
+    <p>屬性包裝、投射屬性  由 @ 修飾的屬性稱為屬性包裝(Property Wrapper)。 @State、@Binding、@ObjectBinding、@EnvironmentObject都是 @propertyWrapper 修飾的 struct。 對一個由 @ 修飾的屬性，在它前面使用 $ 取得的值，被稱為投射屬性(Projection Property)。 並不是所有的 @ 屬性都提供 $ 的投射訪問方式。  @State  @State 修飾的屬性會被自動轉換為一對 setter 和 getter 對這個屬性進行賦值的操作，它的 body 會被再次調用，進行 View 的刷新。 但由於是 value type ，在不同物件傳遞時透過複製值，因此經過不同層級底層改變並無法更新頂層的值。 訪問 @State 修飾的屬性，所有調用觸發的都是 wrappedValue。 使用 $ 訪問屬性，取得的是 projectedValue ，為一個 Binding 類型的值。  SwiftUI 中 State 定義的關鍵部分
+@propertyWrapper public struct State&lt;Value&gt;: DynamicViewProperty, BindingConvertible { public var value: Value { get nonmutating set } public var wrappedValue: Value { get nonmutating set } public var projectedValue: Binding&lt;Value&gt; { get } init(initialValue value: Value) } 範例：點擊按鈕數字累加點擊次數 struct ContentView: View { @State private var count: Int = 0 var body: some View { Button { self....</p>
   </section>
-  <footer class="entry-footer"><span title='2022-03-03 10:51:00 +0800 CST'>2022-03-03 10:51</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Tientien</footer>
-  <a class="entry-link" aria-label="post link to 20220303" href="https://tientiensmile.github.io/posts/life/20220307/"></a>
+  <footer class="entry-footer"><span title='2022-02-06 14:15:00 +0800 CST'>2022-02-06 14:15</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Tientien</footer>
+  <a class="entry-link" aria-label="post link to SwiftUI - 狀態(State)與綁定(Binding)" href="https://tientiensmile.github.io/posts/swiftui/swiftui_stateandbinding/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
