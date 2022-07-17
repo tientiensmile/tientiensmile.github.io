@@ -3,10 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tientiensmile.github.io/categories/</loc>
-    <lastmod>2022-02-17T20:35:00+08:00</lastmod>
+    <lastmod>2022-07-17T08:00:00+08:00</lastmod>
   </url><url>
     <loc>https://tientiensmile.github.io/posts/</loc>
-    <lastmod>2022-02-17T20:35:00+08:00</lastmod>
+    <lastmod>2022-07-17T08:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tientiensmile.github.io/categories/swiftui/</loc>
+    <lastmod>2022-07-17T08:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tientiensmile.github.io/tags/swiftui/</loc>
+    <lastmod>2022-07-17T08:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tientiensmile.github.io/posts/swiftui/swiftui_uiviewrepresentable/</loc>
+    <lastmod>2022-07-17T08:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tientiensmile.github.io/tags/</loc>
+    <lastmod>2022-07-17T08:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://tientiensmile.github.io/</loc>
+    <lastmod>2022-07-17T08:00:00+08:00</lastmod>
   </url><url>
     <loc>https://tientiensmile.github.io/categories/rxswift/</loc>
     <lastmod>2022-02-17T20:35:00+08:00</lastmod>
@@ -17,23 +32,11 @@
     <loc>https://tientiensmile.github.io/posts/rxswift/rxswift_combination_operators/</loc>
     <lastmod>2022-02-17T20:35:00+08:00</lastmod>
   </url><url>
-    <loc>https://tientiensmile.github.io/tags/</loc>
-    <lastmod>2022-02-17T20:35:00+08:00</lastmod>
-  </url><url>
-    <loc>https://tientiensmile.github.io/</loc>
-    <lastmod>2022-02-17T20:35:00+08:00</lastmod>
-  </url><url>
     <loc>https://tientiensmile.github.io/posts/rxswift/rxswift_operators_2/</loc>
     <lastmod>2022-02-14T17:35:00+08:00</lastmod>
   </url><url>
     <loc>https://tientiensmile.github.io/posts/rxswift/rxswift_operators_1/</loc>
     <lastmod>2022-02-13T17:35:00+08:00</lastmod>
-  </url><url>
-    <loc>https://tientiensmile.github.io/categories/swiftui/</loc>
-    <lastmod>2022-02-06T18:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://tientiensmile.github.io/tags/swiftui/</loc>
-    <lastmod>2022-02-06T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://tientiensmile.github.io/posts/swiftui/swiftui_observableobject/</loc>
     <lastmod>2022-02-06T18:00:00+08:00</lastmod>
